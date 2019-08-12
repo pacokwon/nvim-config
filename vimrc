@@ -21,6 +21,12 @@ set incsearch
 set ignorecase
 set smartcase
 
+augroup vimrc-incsearch-highlight
+  autocmd!
+  autocmd CmdlineEnter /,\? :set hlsearch
+  autocmd CmdlineLeave /,\? :set nohlsearch
+augroup END
+
 " enable mouse
 set mouse=a
 
