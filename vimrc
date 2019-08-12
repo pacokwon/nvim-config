@@ -71,6 +71,14 @@ inoremap ˚ <Esc>:m .-2<CR>==gi
 vnoremap ∆ :m '>+1<CR>gv=gv
 vnoremap ˚ :m '<-2<CR>gv=gv
 
+" delete and not cut
+nnoremap x "_x
+nnoremap d "_d
+nnoremap D "_D
+vnoremap d "_d
+nnoremap c "_c
+vnoremap c "_c
+
 " shorthand commands for languages
 autocmd FileType python nnoremap <buffer> <F9> :exec '!clear; python3' shellescape(@%, 1)<CR>
 autocmd FileType python nnoremap <buffer> <F10> :exec '!clear; python3 -i' shellescape(@%, 1)<CR>
