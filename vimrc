@@ -55,14 +55,23 @@ let g:airline_theme='cobalt2'
 let mapleader=","
 let g:mapleader=","
 
+
+"============ Custom Mappings ============"
+
 " semicolon remap
 map ; :
 
+" open vimrc
+map <leader>rc :tabe $MYVIMRC<CR>
+
+" automatically source vimrc on save
+autocmd bufwritepost ~/.vim/vimrc source $MYVIMRC
+
 " Bracket Autocomplete
-inoremap {      {}<Left>
-inoremap {<CR>  {<CR>}<Esc>O
-inoremap {{     {
-inoremap {}     {}
+" inoremap {      {}<Left>
+" inoremap {<CR>  {<CR>}<Esc>O
+" inoremap {{     {
+" inoremap {}     {}
 
 " Move line mappings
 nnoremap ∆ :m .+1<CR>==
@@ -95,4 +104,4 @@ autocmd FileType python nnoremap <buffer> <F9> :exec '!clear; python3' shellesca
 autocmd FileType python nnoremap <buffer> <F10> :exec '!clear; python3 -i' shellescape(@%, 1)<CR>
 autocmd FileType java nnoremap <buffer> <F9> :w<CR>:!javac % && java %< <CR>
 autocmd FileType c nnoremap <buffer> <F9> :w<CR>:!clear; gcc % -o %< && ./%< <CR>
-
+autocmd bufwritepost *.tsc !tsc
