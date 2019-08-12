@@ -49,8 +49,9 @@ let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 " Airline Configs
 " powerline fonts in airline
 let g:airline_powerline_fonts=1
-let g:airline_theme='cobalt2'
-
+let g:airline_theme='onedark'
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#formatter='unique_tail'
 " leader key
 let mapleader=","
 let g:mapleader=","
@@ -63,9 +64,6 @@ map ; :
 
 " open vimrc
 map <leader>rc :tabe $MYVIMRC<CR>
-
-" automatically source vimrc on save
-autocmd bufwritepost ~/.vim/vimrc source $MYVIMRC
 
 " Bracket Autocomplete
 " inoremap {      {}<Left>
@@ -104,4 +102,3 @@ autocmd FileType python nnoremap <buffer> <F9> :exec '!clear; python3' shellesca
 autocmd FileType python nnoremap <buffer> <F10> :exec '!clear; python3 -i' shellescape(@%, 1)<CR>
 autocmd FileType java nnoremap <buffer> <F9> :w<CR>:!javac % && java %< <CR>
 autocmd FileType c nnoremap <buffer> <F9> :w<CR>:!clear; gcc % -o %< && ./%< <CR>
-autocmd bufwritepost *.tsc !tsc
