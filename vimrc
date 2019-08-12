@@ -53,6 +53,7 @@ let g:airline_theme='cobalt2'
 
 " leader key
 let mapleader=","
+let g:mapleader=","
 
 " semicolon remap
 map ; :
@@ -78,6 +79,12 @@ nnoremap D "_D
 vnoremap d "_d
 nnoremap c "_c
 vnoremap c "_c
+
+nnoremap <leader>d ""d
+nnoremap <leader>D ""D
+vnoremap <leader>d ""d
+nnoremap <leader>c ""c
+vnoremap <leader>c ""c
 
 " shorthand commands for languages
 autocmd FileType python nnoremap <buffer> <F9> :exec '!clear; python3' shellescape(@%, 1)<CR>
