@@ -80,11 +80,15 @@ vnoremap d "_d
 nnoremap c "_c
 vnoremap c "_c
 
+" alternative for cut
 nnoremap <leader>d ""d
 nnoremap <leader>D ""D
 vnoremap <leader>d ""d
 nnoremap <leader>c ""c
 vnoremap <leader>c ""c
+
+" somehow this line is needed
+nnoremap p ""p
 
 " shorthand commands for languages
 autocmd FileType python nnoremap <buffer> <F9> :exec '!clear; python3' shellescape(@%, 1)<CR>
