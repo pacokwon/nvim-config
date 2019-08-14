@@ -21,12 +21,6 @@ set incsearch
 set ignorecase
 set smartcase
 
-augroup vimrc-incsearch-highlight
-  autocmd!
-  autocmd CmdlineEnter /,\? :set hlsearch
-  autocmd CmdlineLeave /,\? :set nohlsearch
-augroup END
-
 " enable mouse
 set mouse=a
 
@@ -42,6 +36,9 @@ set path+=**
 " menu on tab
 set wildmenu
 
+
+"============ Netrw Config ============"
+
 " <CR> to open subdirectory
 "    v to open file in vsplit
 "    t to open file in tab
@@ -52,16 +49,28 @@ let g:netrw_liststyle=3     " tree view
 let g:netrw_list_hide=netrw_gitignore#Hide()
 let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
-" Airline Configs
+" Per default, netrw leaves unmodified buffers open. This autocommand
+" deletes netrw's buffer once it's hidden (using ':q', for example)
+" https://github.com/tpope/vim-vinegar/issues/13#issuecomment-47133890
+autocmd FileType netrw setl bufhidden=delete
+
+"====================================="
+
+
+"============ Airline Config ============"
+
 " powerline fonts in airline
 let g:airline_powerline_fonts=1
 let g:airline_theme='dracula'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#formatter='unique_tail'
+
+"========================================"
+
+
 " leader key
 let mapleader=","
 let g:mapleader=","
-
 
 "============ Custom Mappings ============"
 
@@ -100,8 +109,13 @@ vnoremap <leader>d ""d
 nnoremap <leader>c ""c
 vnoremap <leader>c ""c
 
+nnoremap <C-J> 10j
+nnoremap <C-K> 10k
+
 " somehow this line is needed
 nnoremap p ""p
+
+"======================================="
 
 " shorthand commands for languages
 autocmd FileType python nnoremap <buffer> <F9> :exec '!clear; python3' shellescape(@%, 1)<CR>
