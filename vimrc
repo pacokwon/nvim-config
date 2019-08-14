@@ -1,6 +1,7 @@
 filetype plugin indent on
 
 " colors
+" let g:material_style='palenight' " palenight | oceanic | or don't set at all
 set background=dark
 syntax on
 colorscheme dracula
@@ -80,12 +81,6 @@ map ; :
 " open vimrc
 map <leader>rc :tabe $MYVIMRC<CR>
 
-" Bracket Autocomplete
-" inoremap {      {}<Left>
-" inoremap {<CR>  {<CR>}<Esc>O
-" inoremap {{     {
-" inoremap {}     {}
-
 " Move line mappings
 nnoremap ∆ :m .+1<CR>==
 nnoremap ˚ :m .-2<CR>==
@@ -100,13 +95,16 @@ nnoremap d "_d
 nnoremap D "_D
 vnoremap d "_d
 nnoremap c "_c
+nnoremap C "_C
 vnoremap c "_c
+
 
 " alternative for cut
 nnoremap <leader>d ""d
 nnoremap <leader>D ""D
 vnoremap <leader>d ""d
 nnoremap <leader>c ""c
+nnoremap <leader>C ""C
 vnoremap <leader>c ""c
 
 nnoremap <C-J> 10j
