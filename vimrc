@@ -7,6 +7,9 @@ syntax on
 colorscheme dracula
 set termguicolors " this one's real important, don't get why
 
+" prevent syntax from breaking
+syntax sync minlines=20
+
 " editor configurations
 set number
 set relativenumber
