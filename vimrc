@@ -112,6 +112,8 @@ vnoremap <leader>c ""c
 
 nnoremap <C-J> 10j
 nnoremap <C-K> 10k
+vnoremap <C-J> 10j
+vnoremap <C-K> 10k
 
 " somehow this line is needed
 nnoremap p ""p
@@ -123,3 +125,6 @@ autocmd FileType python nnoremap <buffer> <F9> :exec '!clear; python3' shellesca
 autocmd FileType python nnoremap <buffer> <F10> :exec '!clear; python3 -i' shellescape(@%, 1)<CR>
 autocmd FileType java nnoremap <buffer> <F9> :w<CR>:!javac % && java %< <CR>
 autocmd FileType c nnoremap <buffer> <F9> :w<CR>:!clear; gcc % -o %< && ./%< <CR>
+
+" remove whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
