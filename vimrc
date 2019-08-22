@@ -4,11 +4,11 @@ filetype plugin indent on
 " let g:material_style='palenight' " palenight | oceanic | or don't set at all
 set background=dark
 syntax on
-colorscheme dracula
+colorscheme vim-material
 set termguicolors " this one's real important, don't get why
 
 " prevent syntax from breaking
-syntax sync minlines=20
+autocmd BufEnter * :syntax sync fromstart
 
 " editor configurations
 set number
@@ -65,7 +65,7 @@ autocmd FileType netrw setl bufhidden=delete
 
 " powerline fonts in airline
 let g:airline_powerline_fonts=1
-let g:airline_theme='dracula'
+let g:airline_theme='material'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#formatter='unique_tail'
 
