@@ -18,6 +18,8 @@ set expandtab " Expands tabs to space
 set smarttab
 set shiftwidth=4
 set tabstop=4
+set smartindent
+set autoindent
 
 " search related stuff
 set hlsearch
@@ -118,6 +120,7 @@ vnoremap <C-K> 10k
 
 " keybinding for tab navigation
 nnoremap <C-N> gt
+nnoremap <C-P> gT
 
 " somehow this line is needed
 nnoremap p ""p
