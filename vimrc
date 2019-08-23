@@ -4,7 +4,7 @@ filetype plugin indent on
 " let g:material_style='palenight' " palenight | oceanic | or don't set at all
 set background=dark
 syntax on
-colorscheme vim-material
+colorscheme palenight
 set termguicolors " this one's real important, don't get why
 
 " prevent syntax from breaking
@@ -65,7 +65,7 @@ autocmd FileType netrw setl bufhidden=delete
 
 " powerline fonts in airline
 let g:airline_powerline_fonts=1
-let g:airline_theme='material'
+let g:airline_theme='palenight'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#formatter='unique_tail'
 
@@ -110,10 +110,14 @@ nnoremap <leader>c ""c
 nnoremap <leader>C ""C
 vnoremap <leader>c ""c
 
+" keybinding for efficient vertical navigation
 nnoremap <C-J> 10j
 nnoremap <C-K> 10k
 vnoremap <C-J> 10j
 vnoremap <C-K> 10k
+
+" keybinding for tab navigation
+nnoremap <C-N> gt
 
 " somehow this line is needed
 nnoremap p ""p
