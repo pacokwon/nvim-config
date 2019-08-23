@@ -81,7 +81,10 @@ let g:mapleader=","
 "============ Custom Mappings ============"
 
 " semicolon remap
-map ; :
+nnoremap ; :
+nnoremap : ;
+vnoremap ; :
+vnoremap : ;
 
 " open vimrc
 map <leader>rc :tabe $MYVIMRC<CR>
