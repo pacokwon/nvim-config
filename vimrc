@@ -125,6 +125,9 @@ nnoremap <C-P> gT
 
 " somehow this line is needed
 nnoremap p ""p
+
+" cursor position after yank
+vmap y y`]
 "======================================="
 
 " shorthand commands for languages
