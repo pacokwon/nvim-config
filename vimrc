@@ -1,10 +1,10 @@
 filetype plugin indent on
 
 " colors
-" let g:material_style='palenight' " palenight | oceanic | or don't set at all
+let g:material_style='oceanic' " palenight | oceanic | or don't set at all
 set background=dark
 syntax on
-colorscheme palenight
+colorscheme vim-material
 set termguicolors " this one's real important, don't get why
 
 " prevent syntax from breaking
@@ -67,16 +67,15 @@ autocmd FileType netrw setl bufhidden=delete
 
 " powerline fonts in airline
 let g:airline_powerline_fonts=1
-let g:airline_theme='palenight'
+let g:airline_theme='material'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#formatter='unique_tail'
 
 "========================================"
 
-
-" leader key
-let mapleader=","
-let g:mapleader=","
+" semicolon leader
+let mapleader=','
+let g:mapleader=','
 
 "============ Custom Mappings ============"
 
@@ -125,7 +124,7 @@ nnoremap <C-N> gt
 nnoremap <C-P> gT
 
 " somehow this line is needed
-
+nnoremap p ""p
 "======================================="
 
 " shorthand commands for languages
