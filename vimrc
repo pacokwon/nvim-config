@@ -4,7 +4,7 @@ filetype plugin indent on
 " let g:material_style='oceanic' " palenight | oceanic | or don't set at all
 set background=dark
 syntax on
-colorscheme gruvbox_paco
+colorscheme onedark
 set termguicolors " this one's real important, don't get why
 
 " prevent syntax from breaking
@@ -138,6 +138,14 @@ nnoremap <leader>t :tabe . <CR>
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
+" Files command with preview
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+" GFiles command with preview
+command! -bang -nargs=? -complete=dir GFiles
+  \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(), <bang>0)
+
 " In git repo, use :GFiles!, use :Files! otherwise
 nnoremap <expr> <leader>f (len(system('git rev-parse')) ? ':Files!' : ':GFiles! --exclude-standard --others --cached')."\<CR>"
 
@@ -151,8 +159,6 @@ command! -bang -nargs=* Rg
 
 " search
 nnoremap <leader>ss :Rg<CR>
-
-" search fullscreen
 nnoremap <C-S> :Rg!<CR>
 
 "======================================="
