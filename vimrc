@@ -129,30 +129,31 @@ nnoremap <C-P> gT
 nnoremap p ""p
 
 " cursor position after yank
-vmap y y`]
+vnoremap y y`]
 
+" launch netrw
 nnoremap <leader>t :tabe . <CR>
 
 " open vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
-" respect gitignore
-command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-
+" In git repo, use :GFiles!, use :Files! otherwise
 nnoremap <expr> <leader>f (len(system('git rev-parse')) ? ':Files!' : ':GFiles! --exclude-standard --others --cached')."\<CR>"
-command! -bang -nargs=* Ag
-  \ call fzf#vim#ag(<q-args>,
-  \                 <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
-  \                         : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
-  \                 <bang>0)
+
+" Rg command settings
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
+  \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
+  \   <bang>0)
 
 " search
-nnoremap <leader>ss :Ag<CR>
+nnoremap <leader>ss :Rg<CR>
 
 " search fullscreen
-nnoremap <leader>sf :Ag!<CR>
+nnoremap <C-S> :Rg!<CR>
 
 "======================================="
 
