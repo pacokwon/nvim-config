@@ -4,7 +4,7 @@ filetype plugin indent on
 " let g:material_style='oceanic' " palenight | oceanic | or don't set at all
 set background=dark
 syntax on
-colorscheme onedark
+colorscheme onedark_paco
 set termguicolors " this one's real important, don't get why
 
 " prevent syntax from breaking
@@ -72,7 +72,7 @@ autocmd FileType netrw setl bufhidden=delete
 
 " powerline fonts in airline
 let g:airline_powerline_fonts=1
-let g:airline_theme='gruvbox'
+let g:airline_theme='onedark'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#formatter='unique_tail'
 
