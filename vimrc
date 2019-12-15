@@ -11,6 +11,7 @@ set termguicolors " this one's real important, don't get why
 autocmd BufEnter * :syntax sync fromstart
 
 " editor configurations
+set number
 set relativenumber
 set ruler
 set expandtab " Expands tabs to space
@@ -20,6 +21,8 @@ set tabstop=4
 set smartindent
 set autoindent
 set nowrap
+set backspace=indent,eol,start
+" set shell=zsh\ -i
 
 " search related stuff
 set hlsearch
@@ -101,9 +104,10 @@ vnoremap ˚ :m '<-2<CR>gv=gv
 nnoremap x "_x
 nnoremap d "_d
 nnoremap D "_D
-vnoremap d "_d
 nnoremap c "_c
 nnoremap C "_C
+nnoremap s "_s
+vnoremap d "_d
 vnoremap c "_c
 
 
@@ -159,15 +163,18 @@ command! -bang -nargs=* Rg
 
 " search
 nnoremap <leader>ss :Rg<CR>
-nnoremap <C-S> :Rg!<CR>
+nnoremap <leader>sf :Rg!<CR>
 
 "======================================="
 
 " shorthand commands for languages
-autocmd FileType python nnoremap <buffer> <F9> :exec '!clear; python' shellescape(@%, 1)<CR>
-autocmd FileType python nnoremap <buffer> <F10> :exec '!clear; python -i' shellescape(@%, 1)<CR>
+autocmd FileType python nnoremap <buffer> <F9> :w<CR>:exec '!clear; python' shellescape(@%, 1)<CR>
+autocmd FileType python nnoremap <buffer> <F10> :w<CR>:exec '!clear; python -i' shellescape(@%, 1)<CR>
 autocmd FileType java nnoremap <buffer> <F9> :w<CR>:!clear; javac % && java %< <CR>
-autocmd FileType c nnoremap <buffer> <F9> :w<CR>:!clear; gcc % -o %< && ./%< <CR>
+autocmd FileType c nnoremap <buffer> <F9> :w<CR>:!clear; gcc-9 % -o %< && ./%< <CR>
+autocmd FileType cpp nnoremap <buffer> <F9> :w<CR>:!clear; g++-9 -std=c++17 -Wall -Wextra % -o %< && ./%< <CR>
+autocmd FileType matlab nnoremap <buffer> <F9> :w<CR>:!clear; matlab %<CR>
+autocmd FileType go nnoremap <buffer> <F9> :w<CR>:!clear; go run % <CR>
 
 " remove whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
