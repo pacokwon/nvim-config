@@ -1,11 +1,9 @@
 filetype plugin indent on
-
-" colors
 " let g:material_style='oceanic' " palenight | oceanic | or don't set at all
+set termguicolors " this one's real important, don't get why
 set background=dark
 syntax on
-colorscheme onedark_paco
-set termguicolors " this one's real important, don't get why
+colorscheme xcodedark
 
 " prevent syntax from breaking
 autocmd BufEnter * :syntax sync fromstart
@@ -75,7 +73,7 @@ autocmd FileType netrw setl bufhidden=delete
 
 " powerline fonts in airline
 let g:airline_powerline_fonts=1
-let g:airline_theme='onedark'
+let g:airline_theme='wombat'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#formatter='unique_tail'
 
@@ -109,7 +107,7 @@ nnoremap C "_C
 nnoremap s "_s
 vnoremap d "_d
 vnoremap c "_c
-
+vnoremap p "_dp
 
 " alternative for cut
 nnoremap <leader>d ""d
@@ -178,3 +176,4 @@ autocmd FileType go nnoremap <buffer> <F9> :w<CR>:!clear; go run % <CR>
 
 " remove whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
+
