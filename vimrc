@@ -3,7 +3,7 @@ filetype plugin indent on
 set termguicolors " this one's real important, don't get why
 set background=dark
 syntax on
-colorscheme xcodedark
+colorscheme panic
 
 " prevent syntax from breaking
 autocmd BufEnter * :syntax sync fromstart
@@ -47,6 +47,44 @@ set wildmenu
 " fzf setup
 set rtp+=/usr/local/opt/fzf
 
+" coc.nvim related configurations
+set hidden
+set cmdheight=2 " Better display for messages
+set updatetime=300 " You will have bad experience for diagnostic messages when it's default 4000.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" Use tab for trigger completion with characters ahead and navigate.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Add status line support, for integration with other plugin, checkout `:h coc-status`
+" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
 "============ Netrw Config ============"
 
 " <CR> to open subdirectory
@@ -73,7 +111,7 @@ autocmd FileType netrw setl bufhidden=delete
 
 " powerline fonts in airline
 let g:airline_powerline_fonts=1
-let g:airline_theme='wombat'
+let g:airline_theme='night_owl'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#formatter='unique_tail'
 
@@ -134,7 +172,7 @@ nnoremap p ""p
 vnoremap y y`]
 
 " launch netrw
-nnoremap <leader>t :tabe . <CR>
+nnoremap <leader>t :vert ter <CR>
 
 " open vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
