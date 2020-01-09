@@ -3,7 +3,7 @@ filetype plugin indent on
 set termguicolors " this one's real important, don't get why
 set background=dark
 syntax on
-colorscheme panic
+colorscheme onedark_paco
 
 " prevent syntax from breaking
 autocmd BufEnter * :syntax sync fromstart
@@ -61,8 +61,6 @@ function! s:show_documentation()
   endif
 endfunction
 
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
 " Use tab for trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -114,6 +112,7 @@ let g:airline_powerline_fonts=1
 let g:airline_theme='night_owl'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#formatter='unique_tail'
+let g:airline#extensions#coc#enabled = 1
 
 "========================================"
 
@@ -172,7 +171,8 @@ nnoremap p ""p
 vnoremap y y`]
 
 " launch netrw
-nnoremap <leader>t :vert ter <CR>
+nnoremap <leader>tv :vert ter <CR>
+nnoremap <leader>th :ter <CR>
 
 " open vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
