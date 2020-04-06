@@ -51,6 +51,12 @@ set rtp+=/usr/local/opt/fzf
 set hidden
 set cmdheight=2 " Better display for messages
 set updatetime=300 " You will have bad experience for diagnostic messages when it's default 4000.
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
@@ -178,6 +184,9 @@ nnoremap <leader>th :ter <CR>
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
+" launch Git status
+nnoremap <leader>g :G<CR>
+
 " Files command with preview
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
@@ -211,6 +220,7 @@ autocmd FileType c nnoremap <buffer> <F9> :w<CR>:!clear; gcc-9 % -o %< && ./%< <
 autocmd FileType cpp nnoremap <buffer> <F9> :w<CR>:!clear; g++-9 -std=c++17 -Wall -Wextra % -o %< && ./%< <CR>
 autocmd FileType matlab nnoremap <buffer> <F9> :w<CR>:!clear; matlab %<CR>
 autocmd FileType go nnoremap <buffer> <F9> :w<CR>:!clear; go run % <CR>
+autocmd FileType scala nnoremap <buffer> <F9> :w<CR>:!clear; scala % <CR>
 
 " remove whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
