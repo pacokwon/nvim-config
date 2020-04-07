@@ -1,7 +1,0 @@
-{
-    "suggest.floatEnable": false,
-    "python.formatting.provider": "black",
-    "coc.preferences.formatOnType": true,
-    "coc.preferences.formatOnSaveFiletypes": ["js"],
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true
-}
