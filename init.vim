@@ -1,21 +1,27 @@
 call plug#begin()
 
-Plug 'jiangmiao/auto-pairs'
-Plug 'psf/black', { 'tag': '19.10b0' }
-Plug 'neoclide/coc.nvim'
+" utility plugins
 Plug 'editorconfig/editorconfig-vim'
+Plug 'jdsimcoe/panic.vim'
+Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'pacokwon/onedarkpaco.vim'
-Plug 'jdsimcoe/panic.vim'
-Plug 'dracula/vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'mattn/emmet-vim'
+Plug 'neoclide/coc.nvim'
+Plug 'psf/black', { 'tag': '19.10b0' }
+Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" colorschemes
+Plug 'arzg/vim-colors-xcode'
+Plug 'dracula/vim'
+Plug 'lifepillar/vim-solarized8'
+Plug 'pacokwon/onedarkpaco.vim'
 
 call plug#end()
 
@@ -24,6 +30,9 @@ set termguicolors
 set background=dark
 syntax on
 colorscheme onedarkpaco
+
+" set high contrast for solarized8
+let g:solarized_visibility="high"
 
 " editor configurations
 set number
@@ -83,7 +92,8 @@ nnoremap s "_s
 vnoremap d "_d
 vnoremap c "_c
 vnoremap s "_s
-vnoremap p "_dp
+vnoremap p "_dP
+inoremap π <C-R>+
 
 " alternative for cut
 nnoremap <leader>d "+d
@@ -106,11 +116,16 @@ nnoremap <C-P> gT
 " cursor position after yank
 vnoremap y y`]
 
-nnoremap <leader>tv :vsp term://zsh<CR>
-nnoremap <leader>th :sp term://zsh<CR>
+" open terminal
+nnoremap <silent> <leader>tv :vsp term://zsh<CR>
+nnoremap <silent> <leader>th :sp term://zsh<CR>
+
+" open vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " shorthand commands for languages
-autocmd FileType python nnoremap <buffer> <F9> :w<CR>:exec '!clear; python' shellescape(@%, 1)<CR>
+autocmd FileType python nnoremap <buffer> <F9> :!python %<CR>
 autocmd FileType python nnoremap <buffer> <F10> :w<CR>:exec '!clear; python -i' shellescape(@%, 1)<CR>
 autocmd FileType java nnoremap <buffer> <F9> :w<CR>:!clear; javac % && java %< <CR>
 autocmd FileType c nnoremap <buffer> <F9> :w<CR>:!clear; gcc-9 % -o %< && ./%< <CR>
@@ -223,7 +238,7 @@ command! -bang -nargs=? -complete=dir GFiles
   \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(), <bang>0)
 
 " In git repo, use :GFiles!, use :Files! otherwise
-nnoremap <expr> <leader>f (len(system('git rev-parse')) ? ':Files!' : ':GFiles! --exclude-standard --others --cached')."\<CR>"
+nnoremap <expr> <silent> <leader>f (len(system('git rev-parse')) ? ':Files!' : ':GFiles! --exclude-standard --others --cached')."\<CR>"
 
 " Rg command settings
 command! -bang -nargs=* Rg
@@ -240,3 +255,10 @@ nnoremap <leader>sf :Rg!<CR>
 " ====== fugitive ======
 " launch Git status
 nnoremap <leader>g :G<CR>
+
+" ====== emmet-vim ======
+let g:user_emmet_settings = {
+\  'javascript' : {
+\      'extends' : 'jsx',
+\  },
+\}
