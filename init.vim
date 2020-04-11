@@ -123,7 +123,6 @@ nnoremap <silent> <leader>th :sp term://zsh<CR>
 " open vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
-
 " shorthand commands for languages
 autocmd FileType python nnoremap <buffer> <F9> :vsplit \| terminal python %<CR>:startinsert<CR>
 autocmd FileType python nnoremap <buffer> <F10> :vsplit \| terminal python -i %<CR>:startinsert<CR>
@@ -226,6 +225,38 @@ let g:airline#extensions#coc#enabled = 1
 
 " ====== fzf & fzf.vim ======
 " If installed using Homebrew
+
+" Terminal buffer options for fzf
+autocmd! FileType fzf
+autocmd  FileType fzf set noshowmode noruler nonu
+
+if has('nvim') && exists('&winblend') && &termguicolors
+  set winblend=20
+
+  hi NormalFloat guibg=None
+  if exists('g:fzf_colors.bg')
+    call remove(g:fzf_colors, 'bg')
+  endif
+
+  if stridx($FZF_DEFAULT_OPTS, '--border') == -1
+    let $FZF_DEFAULT_OPTS .= ' --border'
+  endif
+
+  function! FloatingFZF()
+    let width = float2nr(&columns * 0.8)
+    let height = float2nr(&lines * 0.6)
+    let opts = { 'relative': 'editor',
+               \ 'row': (&lines - height) / 2,
+               \ 'col': (&columns - width) / 2,
+               \ 'width': width,
+               \ 'height': height }
+
+    call nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
+  endfunction
+
+  let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+endif
+
 set rtp+=/usr/local/opt/fzf
 
 " Files command with preview
@@ -237,7 +268,7 @@ command! -bang -nargs=? -complete=dir GFiles
   \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(), <bang>0)
 
 " In git repo, use :GFiles!, use :Files! otherwise
-nnoremap <expr> <silent> <leader>f (len(system('git rev-parse')) ? ':Files!' : ':GFiles! --exclude-standard --others --cached')."\<CR>"
+nnoremap <expr> <silent> <leader>f (len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached')."\<CR>"
 
 " Rg command settings
 command! -bang -nargs=* Rg
