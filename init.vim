@@ -125,12 +125,11 @@ nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " shorthand commands for languages
-autocmd FileType python nnoremap <buffer> <F9> :!python %<CR>
-autocmd FileType python nnoremap <buffer> <F10> :w<CR>:exec '!clear; python -i' shellescape(@%, 1)<CR>
-autocmd FileType java nnoremap <buffer> <F9> :w<CR>:!clear; javac % && java %< <CR>
-autocmd FileType c nnoremap <buffer> <F9> :w<CR>:!clear; gcc-9 % -o %< && ./%< <CR>
-autocmd FileType cpp nnoremap <buffer> <F9> :w<CR>:!clear; g++-9 -std=c++17 -Wall -Wextra % -o %< && ./%< <CR>
-autocmd FileType matlab nnoremap <buffer> <F9> :w<CR>:!clear; matlab %<CR>
+autocmd FileType python nnoremap <buffer> <F9> :vsplit \| terminal python %<CR>:startinsert<CR>
+autocmd FileType python nnoremap <buffer> <F10> :vsplit \| terminal python -i %<CR>:startinsert<CR>
+autocmd FileType java nnoremap <buffer> <F9> :vsplit \| terminal javac % && java %<<CR>:startinsert<CR>
+autocmd FileType c nnoremap <buffer> <F9> :vsplit \| terminal gcc % -o %< && ./%< <CR>:startinsert<CR>
+autocmd FileType cpp nnoremap <buffer> <F9> :vsplit \| terminal g++ -std=c++17 -Wall -Wextra % -o %< && ./%< <CR>:startinsert<CR>
 autocmd FileType go nnoremap <buffer> <F9> :w<CR>:!clear; go run % <CR>
 autocmd FileType scala nnoremap <buffer> <F9> :w<CR>:!clear; scala % <CR>
 
