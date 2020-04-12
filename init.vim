@@ -123,6 +123,11 @@ nnoremap <silent> <leader>th :sp term://zsh<CR>
 " open vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
+
+if has('nvim')
+    tnoremap <C-n> <C-\><C-n>
+endif
+
 " shorthand commands for languages
 autocmd FileType python nnoremap <buffer> <F9> :vsplit \| terminal python %<CR>:startinsert<CR>
 autocmd FileType python nnoremap <buffer> <F10> :vsplit \| terminal python -i %<CR>:startinsert<CR>
@@ -279,8 +284,8 @@ command! -bang -nargs=* Rg
   \   <bang>0)
 
 " search
-nnoremap <leader>ss :Rg<CR>
-nnoremap <leader>sf :Rg!<CR>
+nnoremap <leader>sf :Rg<CR>
+nnoremap <leader>ss :Rg!<CR>
 
 " ====== fugitive ======
 " launch Git status
