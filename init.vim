@@ -130,13 +130,13 @@ if has('nvim')
 endif
 
 " shorthand commands for languages
-autocmd FileType python nnoremap <buffer> <F9> :vsplit \| terminal python %<CR>:startinsert<CR>
-autocmd FileType python nnoremap <buffer> <F10> :vsplit \| terminal python -i %<CR>:startinsert<CR>
-autocmd FileType java nnoremap <buffer> <F9> :vsplit \| terminal javac % && java %<<CR>:startinsert<CR>
-autocmd FileType c nnoremap <buffer> <F9> :vsplit \| terminal gcc % -o %< && ./%< <CR>:startinsert<CR>
-autocmd FileType cpp nnoremap <buffer> <F9> :vsplit \| terminal g++ -std=c++17 -Wall -Wextra % -o %< && ./%< <CR>:startinsert<CR>
-autocmd FileType go nnoremap <buffer> <F9> :w<CR>:!clear; go run % <CR>
-autocmd FileType scala nnoremap <buffer> <F9> :w<CR>:!clear; scala % <CR>
+autocmd FileType python nnoremap <silent> <buffer> <F9> :vsplit \| terminal python %<CR>:startinsert<CR>
+autocmd FileType python nnoremap <silent> <buffer> <F10> :vsplit \| terminal python -i %<CR>:startinsert<CR>
+autocmd FileType java nnoremap <silent> <buffer> <F9> :vsplit \| terminal javac % && java %<<CR>:startinsert<CR>
+autocmd FileType c nnoremap <silent> <buffer> <F9> :vsplit \| terminal gcc % -o %< && ./%< <CR>:startinsert<CR>
+autocmd FileType cpp nnoremap <silent> <buffer> <F9> :vsplit \| terminal g++ -std=c++17 -Wall -Wextra % -o %< && ./%< <CR>:startinsert<CR>
+autocmd FileType go nnoremap <silent> <buffer> <F9> :w<CR>:!clear; go run % <CR>
+autocmd FileType scala nnoremap <silent> <buffer> <F9> :w<CR>:!clear; scala % <CR>
 
 " remove whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
