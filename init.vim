@@ -16,6 +16,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'voldikss/vim-floaterm'
 
 " colorschemes
 Plug 'arzg/vim-colors-xcode'
@@ -297,3 +298,14 @@ let g:user_emmet_settings = {
 \      'extends' : 'jsx',
 \  },
 \}
+
+" ====== vim-floaterm ======
+nnoremap <silent> <leader>tn :FloatermNew<CR>
+tnoremap <silent> <leader>tn <C-\><C-n>:FloatermNew<CR>
+nnoremap <silent> <leader>h :FloatermPrev<CR>
+tnoremap <silent> <leader>h <C-\><C-n>:FloatermPrev<CR>
+nnoremap <silent> <leader>l :FloatermNext<CR>
+tnoremap <silent> <leader>l <C-\><C-n>:FloatermNext<CR>
+nnoremap <silent> <leader>tt :FloatermToggle<CR>
+tnoremap <silent> <leader>tt <C-\><C-n>:FloatermToggle<CR>
+
