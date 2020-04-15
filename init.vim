@@ -144,6 +144,19 @@ autocmd BufWritePre * :%s/\s\+$//e
 set guicursor=
 
 " ========== Plugin Configurations ==========
+" ====== netrw ======
+let g:netrw_banner=0        " disable banner
+let g:netrw_browse_split=4  " open in prior window
+let g:netrw_altv=1          " open splits to the right
+let g:netrw_liststyle=3     " tree view
+let g:netrw_list_hide='.*\.swp$'
+let g:netrw_localrmdir='rm -r'
+
+" Per default, netrw leaves unmodified buffers open. This autocommand
+" deletes netrw's buffer once it's hidden (using ':q', for example)
+" https://github.com/tpope/vim-vinegar/issues/13#issuecomment-47133890
+autocmd FileType netrw setl bufhidden=delete
+
 " ====== black.vim ======
 " format on save
 autocmd BufWritePre *.py execute ':Black'
