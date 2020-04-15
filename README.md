@@ -19,6 +19,7 @@ I'm using [vim-plug](https://github.com/junegunn/vim-plug) maintained by [junegu
 * [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
 * [tpope/vim-repeat](https://github.com/tpope/vim-repeat)
 * [tpope/vim-surround](https://github.com/tpope/vim-surround)
+* [voldikss/vim-floaterm](https://github.com/voldikss/vim-floaterm)
 
 ### Colorschemes
 I love colorschemes
