@@ -306,6 +306,9 @@ nnoremap <leader>ss :Rg!<CR>
 nnoremap <leader>g :G<CR>
 
 " ====== emmet-vim ======
+" only enable insert mode emmet functions
+let g:user_emmet_mode='i'
+
 let g:user_emmet_settings = {
 \  'javascript' : {
 \      'extends' : 'jsx',
