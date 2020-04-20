@@ -34,6 +34,7 @@ colorscheme onedarkpaco
 
 " set high contrast for solarized8
 let g:solarized_visibility="high"
+let g:solarized_extra_hi_groups=1
 
 " editor configurations
 set number
@@ -137,6 +138,11 @@ autocmd FileType c nnoremap <silent> <buffer> <F9> :vsplit \| terminal gcc % -o 
 autocmd FileType cpp nnoremap <silent> <buffer> <F9> :vsplit \| terminal g++ -std=c++17 -Wall -Wextra % -o %< && ./%< <CR>:startinsert<CR>
 autocmd FileType go nnoremap <silent> <buffer> <F9> :w<CR>:!clear; go run % <CR>
 autocmd FileType scala nnoremap <silent> <buffer> <F9> :w<CR>:!clear; scala % <CR>
+
+" tsconfig.json is actually jsonc, help TypeScript set the correct filetype
+autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
+autocmd FileType jsonc syntax match Comment +\/\/.\+$+
+
 
 " remove whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -300,6 +306,9 @@ command! -bang -nargs=* Rg
 " search
 nnoremap <leader>sf :Rg<CR>
 nnoremap <leader>ss :Rg!<CR>
+
+" ====== commentary ======
+autocmd FileType jsonc setlocal commentstring=//%s
 
 " ====== fugitive ======
 " launch Git status
