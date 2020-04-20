@@ -48,7 +48,7 @@ set smartindent
 set autoindent
 set nowrap
 set backspace=indent,eol,start
-" set shell=zsh\ -i
+set wildmenu
 
 " search related stuff
 set hlsearch
@@ -62,9 +62,6 @@ set mouse=a
 if has("clipboard")
     set clipboard=unnamedplus
 endif
-
-" menu on tab
-set wildmenu
 
 " set leader to comma
 let mapleader=','
@@ -143,9 +140,11 @@ autocmd FileType scala nnoremap <silent> <buffer> <F9> :w<CR>:!clear; scala % <C
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
 autocmd FileType jsonc syntax match Comment +\/\/.\+$+
 
-
 " remove whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
+
+" disaable automatic comment insertion
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 set guicursor=
 
