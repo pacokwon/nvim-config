@@ -11,7 +11,6 @@ I'm using [vim-plug](https://github.com/junegunn/vim-plug) maintained by [junegu
 * [jiangmiao/auto-pairs](https://github.com/jiangmiao/auto-pairs)
 * [junegunn/fzf](https://github.com/junegunn/fzf)
 * [junegunn/fzf.vim](https://github.com/junegunn/fzf.vim)
-* [mattn/emmet-vim](https://github.com/mattn/emmet-vim)
 * [neoclide/coc.nvim](https://github.com/neoclide/coc.nvim)
 * [psf/black](https://github.com/psf/black)
 * [sheerun/vim-polyglot](https://github.com/sheerun/vim-polyglot)
@@ -20,6 +19,16 @@ I'm using [vim-plug](https://github.com/junegunn/vim-plug) maintained by [junegu
 * [tpope/vim-repeat](https://github.com/tpope/vim-repeat)
 * [tpope/vim-surround](https://github.com/tpope/vim-surround)
 * [voldikss/vim-floaterm](https://github.com/voldikss/vim-floaterm)
+
+### Coc Extensions
+`coc.nvim` provides lots of useful extensions. I'm using:
+* [neoclide/coc-css](https://github.com/neoclide/coc-css)
+* [neoclide/coc-emmet](https://github.com/neoclide/coc-emmet)
+* [neoclide/coc-html](https://github.com/neoclide/coc-html)
+* [neoclide/coc-json](https://github.com/neoclide/coc-json)
+* [neoclide/coc-metals](https://github.com/neoclide/coc-metals)
+* [neoclide/coc-python](https://github.com/neoclide/coc-python)
+* [neoclide/coc-tsserver](https://github.com/neoclide/coc-tsserver)
 
 ### Colorschemes
 I love colorschemes

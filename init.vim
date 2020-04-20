@@ -6,7 +6,7 @@ Plug 'jdsimcoe/panic.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'mattn/emmet-vim'
+" Plug 'mattn/emmet-vim'
 Plug 'neoclide/coc.nvim'
 Plug 'psf/black', { 'tag': '19.10b0' }
 Plug 'sheerun/vim-polyglot'
@@ -313,16 +313,6 @@ autocmd FileType jsonc setlocal commentstring=//%s
 " ====== fugitive ======
 " launch Git status
 nnoremap <leader>g :G<CR>
-
-" ====== emmet-vim ======
-" only enable insert mode emmet functions
-let g:user_emmet_mode='i'
-
-let g:user_emmet_settings = {
-\  'javascript' : {
-\      'extends' : 'jsx',
-\  },
-\}
 
 " ====== vim-floaterm ======
 nnoremap <silent> <leader>tn :FloatermNew<CR>
