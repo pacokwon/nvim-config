@@ -6,7 +6,6 @@ Plug 'jdsimcoe/panic.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-" Plug 'mattn/emmet-vim'
 Plug 'neoclide/coc.nvim'
 Plug 'psf/black', { 'tag': '19.10b0' }
 Plug 'sheerun/vim-polyglot'
@@ -17,6 +16,7 @@ Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'voldikss/vim-floaterm'
+Plug 'mattn/emmet-vim'
 
 " colorschemes
 Plug 'arzg/vim-colors-xcode'
@@ -322,4 +322,13 @@ nnoremap <silent> <leader>l :FloatermNext<CR>
 tnoremap <silent> <leader>l <C-\><C-n>:FloatermNext<CR>
 nnoremap <silent> <leader>tt :FloatermToggle<CR>
 tnoremap <silent> <leader>tt <C-\><C-n>:FloatermToggle<CR>
+
+" ====== emmet-vim ======
+let g:user_emmet_mode='i'
+let g:user_emmet_settings = {
+\  'javascript' : {
+\      'extends' : 'jsx',
+\  },
+\}
+
 
