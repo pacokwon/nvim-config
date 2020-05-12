@@ -242,7 +242,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " ====== vim-airline ======
 " powerline fonts in airline
 let g:airline_powerline_fonts=1
-let g:airline_theme='night_owl'
+let g:airline_theme='minimalist'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#formatter='unique_tail'
 let g:airline#extensions#coc#enabled = 1
@@ -293,6 +293,7 @@ command! -bang -nargs=? -complete=dir GFiles
 
 " In git repo, use :GFiles!, use :Files! otherwise
 nnoremap <expr> <silent> <leader>f (len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached')."\<CR>"
+nnoremap <leader>b :Buffers<CR>
 
 " Rg command settings
 command! -bang -nargs=* Rg
