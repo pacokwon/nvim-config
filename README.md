@@ -24,6 +24,7 @@ I'm using [vim-plug](https://github.com/junegunn/vim-plug) maintained by [junegu
 `coc.nvim` provides lots of useful extensions. I'm using:
 * [neoclide/coc-css](https://github.com/neoclide/coc-css)
 * [neoclide/coc-emmet](https://github.com/neoclide/coc-emmet)
+* [neoclide/coc-floaterm](https://github.com/neoclide/coc-floaterm)
 * [neoclide/coc-html](https://github.com/neoclide/coc-html)
 * [neoclide/coc-json](https://github.com/neoclide/coc-json)
 * [neoclide/coc-metals](https://github.com/neoclide/coc-metals)
