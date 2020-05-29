@@ -6,6 +6,7 @@ Plug 'jdsimcoe/panic.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
 Plug 'neoclide/coc.nvim'
 Plug 'psf/black', { 'tag': '19.10b0' }
 Plug 'sheerun/vim-polyglot'
@@ -332,4 +333,24 @@ let g:user_emmet_settings = {
 \  },
 \}
 
+" ====== goyo ======
+function! s:goyo_enter()
+  set noshowmode
+  set noshowcmd
+  set wrap
+  set linebreak
+  set scrolloff=999
+  " ...
+endfunction
 
+function! s:goyo_leave()
+  set showmode
+  set showcmd
+  set nowrap
+  set nolinebreak
+  set scrolloff=5
+  " ...
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
