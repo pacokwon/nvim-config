@@ -2,13 +2,21 @@
 
 This contains my personal `init.vim` configuration file
 
-This repository was made to motivate myself to use more `nvim`, which is apparently what all the *cool guys* use.
+This repository was made to motivate myself to use more `neovim`, which is apparently what all the *cool guys* use.
 
 ### Plugins
 I'm using [vim-plug](https://github.com/junegunn/vim-plug) maintained by [junegunn](https://github.com/junegunn) as plugin manager
+
+###### Installation for Unix, Linux
+```sh
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+```
+Plugins I use:
 * [editorconfig/editorconfig-vim](https://github.com/editorconfig/editorconfig-vim)
 * [jdsimcoe/panic.vim](https://github.com/jdsimcoe/panic.vim)
 * [jiangmiao/auto-pairs](https://github.com/jiangmiao/auto-pairs)
+* [junegunn/goyo.vim](https://github.com/junegunn/goyo.vim)
 * [junegunn/fzf](https://github.com/junegunn/fzf)
 * [junegunn/fzf.vim](https://github.com/junegunn/fzf.vim)
 * [neoclide/coc.nvim](https://github.com/neoclide/coc.nvim)
