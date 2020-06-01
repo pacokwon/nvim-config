@@ -1,12 +1,14 @@
 call plug#begin()
 
 " utility plugins
+Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'jdsimcoe/panic.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'leafOfTree/vim-vue-plugin'
 Plug 'neoclide/coc.nvim'
 Plug 'psf/black', { 'tag': '19.10b0' }
 Plug 'sheerun/vim-polyglot'
@@ -354,3 +356,12 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+" ====== vim-vue-plugin ======
+let g:vim_vue_plugin_load_full_syntax = 1
+
+" ====== vim-gitgutter ======
+nnoremap ) <Plug>(GitGutterNextHunk)
+nnoremap ( <Plug>(GitGutterNextHunk)
+let g:gitgutter_enabled = 1
+let g:gitgutter_map_keys = 0

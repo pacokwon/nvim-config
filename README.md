@@ -13,6 +13,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 ```
 Plugins I use:
+* [airblade/vim-gitgutter](https://github.com/airblade/vim-gitgutter)
 * [editorconfig/editorconfig-vim](https://github.com/editorconfig/editorconfig-vim)
 * [jdsimcoe/panic.vim](https://github.com/jdsimcoe/panic.vim)
 * [jiangmiao/auto-pairs](https://github.com/jiangmiao/auto-pairs)
