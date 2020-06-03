@@ -278,6 +278,8 @@ let g:airline#extensions#coc#enabled = 1
 autocmd! FileType fzf
 autocmd  FileType fzf set noshowmode noruler nonu nornu
 
+let g:fzf_commits_log_options = '--all --decorate --oneline --graph'
+
 if has('nvim') && exists('&winblend') && &termguicolors
     set winblend=20
 
@@ -336,7 +338,7 @@ autocmd FileType jsonc setlocal commentstring=//%s
 
 " ====== fugitive ======
 " launch Git status
-nnoremap <leader>g :G<CR>
+nnoremap <leader>g :vertical Gstatus<CR>
 
 " ====== vim-floaterm ======
 nnoremap <silent> <leader>tn :FloatermNew<CR>
