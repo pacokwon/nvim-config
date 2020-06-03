@@ -20,6 +20,7 @@ Plugins I use:
 * [junegunn/goyo.vim](https://github.com/junegunn/goyo.vim)
 * [junegunn/fzf](https://github.com/junegunn/fzf)
 * [junegunn/fzf.vim](https://github.com/junegunn/fzf.vim)
+* [leafOfTree/vim-vue-plugin](https://github.com/leafOfTree/vim-vue-plugin)
 * [neoclide/coc.nvim](https://github.com/neoclide/coc.nvim)
 * [psf/black](https://github.com/psf/black)
 * [sheerun/vim-polyglot](https://github.com/sheerun/vim-polyglot)
@@ -39,6 +40,7 @@ Plugins I use:
 * [neoclide/coc-metals](https://github.com/neoclide/coc-metals)
 * [neoclide/coc-python](https://github.com/neoclide/coc-python)
 * [neoclide/coc-tsserver](https://github.com/neoclide/coc-tsserver)
+* [neoclide/coc-vetur](https://github.com/neoclide/coc-vetur)
 
 ### Colorschemes
 I love colorschemes
