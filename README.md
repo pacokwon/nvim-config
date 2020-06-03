@@ -42,9 +42,11 @@ Plugins I use:
 
 ### Colorschemes
 I love colorschemes
-* [vim-airline/vim-airline](https://github.com/vim-airline/vim-airline)
-* [vim-airline/vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
+* [arcticicestudio/nord-vim](https://github.com/arcticicestudio/nord-vim)
 * [arzg/vim-colors-xcode](https://github.com/arzg/vim-colors-xcode)
 * [dracula/vim](https://github.com/dracula/vim)
+* [haishanh/night-owl.vim](https://github.com/haishanh/night-owl.vim)
 * [lifepillar/vim-solarized8](https://github.com/lifepillar/vim-solarized8)
+* [morhetz/gruvbox](https://github.com/morhetz/gruvbox)
 * [pacokwon/onedarkpaco.vim](https://github.com/pacokwon/onedarkpaco.vim)
+* [vim-airline/vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)

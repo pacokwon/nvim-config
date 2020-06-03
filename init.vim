@@ -22,10 +22,14 @@ Plug 'voldikss/vim-floaterm'
 Plug 'mattn/emmet-vim'
 
 " colorschemes
+Plug 'arcticicestudio/nord-vim'
 Plug 'arzg/vim-colors-xcode'
 Plug 'dracula/vim'
+Plug 'haishanh/night-owl.vim'
 Plug 'lifepillar/vim-solarized8'
+Plug 'morhetz/gruvbox'
 Plug 'pacokwon/onedarkpaco.vim'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -33,11 +37,18 @@ filetype plugin indent on
 set termguicolors
 set background=dark
 syntax on
-colorscheme onedarkpaco
 
-" set high contrast for solarized8
+" colorscheme configurations
+
+" ====== vim-solarized8 ======
 let g:solarized_visibility="high"
 let g:solarized_extra_hi_groups=1
+
+" ====== gruvbox ======
+let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_contrast_light='hard'
+
+colorscheme gruvbox
 
 " editor configurations
 set number
@@ -243,9 +254,19 @@ nmap <leader>rn <Plug>(coc-rename)
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " ====== vim-airline ======
+let theme_mappings = {
+    \'onedarkpaco': 'onedark',
+    \'nord': 'nord',
+    \'gruvbox': 'gruvbox',
+    \'solarized8_high': 'solarized',
+    \'dracula': 'dracula',
+    \'panic': 'panic',
+    \'night-owl': 'night_owl'
+    \ }
+
 " powerline fonts in airline
 let g:airline_powerline_fonts=1
-let g:airline_theme='minimalist'
+let g:airline_theme=get(theme_mappings, get(g:, 'colors_name', 'default'), 'minimalist')
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#formatter='unique_tail'
 let g:airline#extensions#coc#enabled = 1
