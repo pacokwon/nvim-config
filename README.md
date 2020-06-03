@@ -14,13 +14,15 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 ```
 Plugins I use:
 * [airblade/vim-gitgutter](https://github.com/airblade/vim-gitgutter)
+* [chrisbra/Colorizer](https://github.com/chrisbra/Colorizer)
 * [editorconfig/editorconfig-vim](https://github.com/editorconfig/editorconfig-vim)
 * [jdsimcoe/panic.vim](https://github.com/jdsimcoe/panic.vim)
 * [jiangmiao/auto-pairs](https://github.com/jiangmiao/auto-pairs)
-* [junegunn/goyo.vim](https://github.com/junegunn/goyo.vim)
 * [junegunn/fzf](https://github.com/junegunn/fzf)
 * [junegunn/fzf.vim](https://github.com/junegunn/fzf.vim)
+* [junegunn/goyo.vim](https://github.com/junegunn/goyo.vim)
 * [leafOfTree/vim-vue-plugin](https://github.com/leafOfTree/vim-vue-plugin)
+* [mattn/emmet-vim](https://github.com/mattn/emmet-vim)
 * [neoclide/coc.nvim](https://github.com/neoclide/coc.nvim)
 * [psf/black](https://github.com/psf/black)
 * [sheerun/vim-polyglot](https://github.com/sheerun/vim-polyglot)
@@ -28,16 +30,18 @@ Plugins I use:
 * [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
 * [tpope/vim-repeat](https://github.com/tpope/vim-repeat)
 * [tpope/vim-surround](https://github.com/tpope/vim-surround)
+* [vim-airline/vim-airline](https://github.com/vim-airline/vim-airline)
+* [vimwiki/vimwiki](https://github.com/vimwiki/vimwiki)
 * [voldikss/vim-floaterm](https://github.com/voldikss/vim-floaterm)
 
 ### Coc Extensions
 `coc.nvim` provides lots of useful extensions. I'm using:
 * [neoclide/coc-css](https://github.com/neoclide/coc-css)
-* [neoclide/coc-emmet](https://github.com/neoclide/coc-emmet)
 * [neoclide/coc-floaterm](https://github.com/neoclide/coc-floaterm)
 * [neoclide/coc-html](https://github.com/neoclide/coc-html)
 * [neoclide/coc-json](https://github.com/neoclide/coc-json)
 * [neoclide/coc-metals](https://github.com/neoclide/coc-metals)
+* [neoclide/coc-prettier](https://github.com/neoclide/coc-prettier)
 * [neoclide/coc-python](https://github.com/neoclide/coc-python)
 * [neoclide/coc-tsserver](https://github.com/neoclide/coc-tsserver)
 * [neoclide/coc-vetur](https://github.com/neoclide/coc-vetur)

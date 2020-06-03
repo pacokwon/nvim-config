@@ -2,6 +2,7 @@ call plug#begin()
 
 " utility plugins
 Plug 'airblade/vim-gitgutter'
+Plug 'chrisbra/Colorizer'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'jdsimcoe/panic.vim'
 Plug 'jiangmiao/auto-pairs'
@@ -9,6 +10,7 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'leafOfTree/vim-vue-plugin'
+Plug 'mattn/emmet-vim'
 Plug 'neoclide/coc.nvim'
 Plug 'psf/black', { 'tag': '19.10b0' }
 Plug 'sheerun/vim-polyglot'
@@ -17,9 +19,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'vimwiki/vimwiki'
 Plug 'voldikss/vim-floaterm'
-Plug 'mattn/emmet-vim'
 
 " colorschemes
 Plug 'arcticicestudio/nord-vim'
