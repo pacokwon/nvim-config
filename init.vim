@@ -268,6 +268,7 @@ let theme_mappings = {
 " powerline fonts in airline
 let g:airline_powerline_fonts=1
 let g:airline_theme=get(theme_mappings, get(g:, 'colors_name', 'default'), 'minimalist')
+autocmd ColorScheme * let g:airline_theme=get(theme_mappings, get(g:, 'colors_name', 'default'), 'minimalist')
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#formatter='unique_tail'
 let g:airline#extensions#coc#enabled = 1
