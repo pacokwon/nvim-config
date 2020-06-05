@@ -63,6 +63,8 @@ set autoindent
 set nowrap
 set backspace=indent,eol,start
 set wildmenu
+set list
+set listchars=eol:⏎,tab:⍿·,space:·,trail:␠,nbsp:⎵
 
 " search related stuff
 set hlsearch
