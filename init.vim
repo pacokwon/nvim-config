@@ -393,3 +393,9 @@ nnoremap ) <Plug>(GitGutterNextHunk)
 nnoremap ( <Plug>(GitGutterNextHunk)
 let g:gitgutter_enabled = 1
 let g:gitgutter_map_keys = 0
+
+" ====== vimwiki ======
+let g:vimwiki_list = [
+    \{'path': '~/vimwiki', 'syntax': 'markdown', 'ext': '.md'}
+\]
+nnoremap <leader>wf :Files ~/vimwiki<CR>
