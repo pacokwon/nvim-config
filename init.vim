@@ -46,7 +46,7 @@ let g:solarized_extra_hi_groups=1
 
 " ====== gruvbox ======
 let g:gruvbox_contrast_dark='hard'
-let g:gruvbox_contrast_light='hard'
+let g:gruvbox_contrast_light='soft'
 
 colorscheme gruvbox
 
@@ -259,10 +259,13 @@ let theme_mappings = {
     \'nord': 'nord',
     \'gruvbox': 'gruvbox',
     \'solarized8_high': 'solarized',
+    \'solarized8_flat': 'solarized',
+    \'solarized8_low': 'solarized',
+    \'solarized8': 'solarized',
     \'dracula': 'dracula',
     \'panic': 'panic',
     \'night-owl': 'night_owl'
-    \ }
+\}
 
 " powerline fonts in airline
 let g:airline_powerline_fonts=1
