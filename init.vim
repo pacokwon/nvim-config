@@ -72,6 +72,7 @@ set smartcase
 
 " enable mouse
 set mouse=a
+set guicursor=
 
 if has("clipboard")
     set clipboard=unnamedplus
@@ -160,7 +161,9 @@ autocmd BufWritePre * :%s/\s\+$//e
 " disable automatic comment insertion
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-set guicursor=
+autocmd BufRead,BufNewFile *.md setlocal spell | set complete+=kspell
+autocmd FileType gitcommit setlocal spell | set complete+=kspell
+
 
 " ========== Plugin Configurations ==========
 " ====== netrw ======
