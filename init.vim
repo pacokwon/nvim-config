@@ -39,8 +39,7 @@ set termguicolors
 set background=dark
 syntax on
 
-" colorscheme configurations
-
+" ========== Colorscheme Configurations ==========
 " ====== vim-solarized8 ======
 let g:solarized_visibility="high"
 let g:solarized_extra_hi_groups=1
@@ -51,7 +50,7 @@ let g:gruvbox_contrast_light='hard'
 
 colorscheme gruvbox
 
-" editor configurations
+" ========== Editor Configurations ==========
 set number
 set relativenumber
 set ruler
@@ -158,7 +157,7 @@ autocmd FileType jsonc syntax match Comment +\/\/.\+$+
 " remove whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
-" disaable automatic comment insertion
+" disable automatic comment insertion
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 set guicursor=
@@ -274,8 +273,6 @@ let g:airline#extensions#tabline#formatter='unique_tail'
 let g:airline#extensions#coc#enabled = 1
 
 " ====== fzf & fzf.vim ======
-" If installed using Homebrew
-
 " Terminal buffer options for fzf
 autocmd! FileType fzf
 autocmd  FileType fzf set noshowmode noruler nonu nornu
