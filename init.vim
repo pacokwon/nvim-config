@@ -391,8 +391,8 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 let g:vim_vue_plugin_load_full_syntax = 1
 
 " ====== vim-gitgutter ======
-nnoremap ) <Plug>(GitGutterNextHunk)
-nnoremap ( <Plug>(GitGutterNextHunk)
+nmap ) <Plug>(GitGutterNextHunk)
+nmap ( <Plug>(GitGutterPrevHunk)
 let g:gitgutter_enabled = 1
 let g:gitgutter_map_keys = 0
 
