@@ -163,8 +163,8 @@ autocmd BufWritePre * :%s/\s\+$//e
 " disable automatic comment insertion
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-autocmd BufRead,BufNewFile *.md setlocal spell | set complete+=kspell
-autocmd FileType gitcommit setlocal spell | set complete+=kspell
+autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us | set complete+=kspell
+autocmd FileType gitcommit setlocal spell spelllang=en_us | set complete+=kspell
 
 
 " ========== Plugin Configurations ==========
