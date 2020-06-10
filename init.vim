@@ -137,8 +137,8 @@ nnoremap <silent> <leader>tv :vsp term://zsh<CR>
 nnoremap <silent> <leader>th :sp term://zsh<CR>
 
 " open vimrc
-nnoremap <leader>ev :vsplit $MYVIMRC<CR>
-nnoremap <leader>sv :source $MYVIMRC<CR>
+nnoremap <leader>ve :vsplit $MYVIMRC<CR>
+nnoremap <leader>vs :source $MYVIMRC<CR>
 
 if has('nvim')
     tnoremap <C-n> <C-\><C-n>
@@ -325,8 +325,8 @@ command! -bang -nargs=? -complete=dir GFiles
   \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(), <bang>0)
 
 " In git repo, use :GFiles!, use :Files! otherwise
-nnoremap <expr> <silent> <leader>f (len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached')."\<CR>"
-nnoremap <leader>b :Buffers<CR>
+nnoremap <expr> <silent> <leader>ff (len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached')."\<CR>"
+nnoremap <leader>fb :Buffers<CR>
 
 " Rg command settings
 command! -bang -nargs=* Rg
@@ -337,23 +337,20 @@ command! -bang -nargs=* Rg
   \   <bang>0)
 
 " search
-nnoremap <leader>sf :Rg<CR>
-nnoremap <leader>ss :Rg!<CR>
+nnoremap <leader>fs :Rg<CR>
+nnoremap <leader>fr :Rg!<CR>
 
 " ====== commentary ======
 autocmd FileType jsonc setlocal commentstring=//%s
 
 " ====== fugitive ======
 " launch Git status
-nnoremap <leader>g :vertical Gstatus<CR>
+nnoremap <leader>gg :vertical Gstatus<CR>
+nnoremap <leader>gp :Gpush<CR>
 
 " ====== vim-floaterm ======
 nnoremap <silent> <leader>tn :FloatermNew<CR>
 tnoremap <silent> <leader>tn <C-\><C-n>:FloatermNew<CR>
-nnoremap <silent> <leader>h :FloatermPrev<CR>
-tnoremap <silent> <leader>h <C-\><C-n>:FloatermPrev<CR>
-nnoremap <silent> <leader>l :FloatermNext<CR>
-tnoremap <silent> <leader>l <C-\><C-n>:FloatermNext<CR>
 nnoremap <silent> <leader>tt :FloatermToggle<CR>
 tnoremap <silent> <leader>tt <C-\><C-n>:FloatermToggle<CR>
 
@@ -386,6 +383,8 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+nnoremap <silent> <leader>gy :Goyo<CR>
 
 " ====== vim-vue-plugin ======
 let g:vim_vue_plugin_load_full_syntax = 1
