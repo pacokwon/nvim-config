@@ -166,6 +166,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us | set complete+=kspell
 autocmd FileType gitcommit setlocal spell spelllang=en_us | set complete+=kspell
+autocmd FileType csv set noexpandtab
 
 
 " ========== Plugin Configurations ==========
