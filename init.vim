@@ -15,6 +15,7 @@ Plug 'neoclide/coc.nvim'
 Plug 'psf/black', { 'tag': '19.10b0' }
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
