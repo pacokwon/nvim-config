@@ -365,12 +365,20 @@ let g:user_emmet_settings = {
 \}
 
 " ====== goyo ======
+let g:goyo_width=120
+
 function! s:goyo_enter()
   set noshowmode
   set noshowcmd
   set wrap
   set linebreak
   set scrolloff=999
+  nnoremap 0 g0
+  nnoremap $ g$
+  nnoremap j gj
+  vnoremap j gj
+  nnoremap k gk
+  vnoremap k gk
   " ...
 endfunction
 
@@ -380,6 +388,10 @@ function! s:goyo_leave()
   set nowrap
   set nolinebreak
   set scrolloff=5
+  unmap j
+  unmap k
+  unmap 0
+  unmap $
   " ...
 endfunction
 
