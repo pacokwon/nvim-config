@@ -19,6 +19,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'vifm/vifm.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vimwiki/vimwiki'
 Plug 'voldikss/vim-floaterm'
@@ -415,3 +416,8 @@ let g:vimwiki_list = [
     \{'path': '~/vimwiki', 'syntax': 'markdown', 'ext': '.md'}
 \]
 nnoremap <leader>wf :Files ~/vimwiki<CR>
+
+" ====== vifm.vim ======
+let g:loaded_netrw          = 1
+let g:loaded_netrwPlguin    = 1
+let g:vifm_replace_netrw    = 1
