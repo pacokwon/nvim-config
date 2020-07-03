@@ -399,6 +399,7 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+autocmd! BufRead,BufNewFile *.md :Goyo 120
 
 nnoremap <silent> <leader>gy :Goyo<CR>
 
