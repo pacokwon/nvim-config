@@ -417,6 +417,8 @@ let g:vimwiki_list = [
     \{'path': '~/vimwiki', 'syntax': 'markdown', 'ext': '.md'}
 \]
 nnoremap <leader>wf :Files ~/vimwiki<CR>
+nmap <C-h> <Plug>VimwikiDiaryPrevDay
+nmap <C-l> <Plug>VimwikiDiaryNextDay
 
 " ====== vifm.vim ======
 let g:loaded_netrw          = 1
