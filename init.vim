@@ -14,6 +14,7 @@ Plug 'mattn/emmet-vim'
 Plug 'neoclide/coc.nvim'
 Plug 'psf/black', { 'tag': '19.10b0' }
 Plug 'sheerun/vim-polyglot'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'

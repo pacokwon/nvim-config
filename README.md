@@ -26,6 +26,7 @@ Plugins I use:
 * [neoclide/coc.nvim](https://github.com/neoclide/coc.nvim)
 * [psf/black](https://github.com/psf/black)
 * [sheerun/vim-polyglot](https://github.com/sheerun/vim-polyglot)
+* [styled-components/vim-styled-components](https://github.com/styled-components/vim-styled-components)
 * [tpope/vim-commentary](https://github.com/tpope/vim-commentary)
 * [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
 * [tpope/vim-repeat](https://github.com/tpope/vim-repeat)
@@ -37,6 +38,7 @@ Plugins I use:
 ### Coc Extensions
 `coc.nvim` provides lots of useful extensions. I'm using:
 * [neoclide/coc-css](https://github.com/neoclide/coc-css)
+* [neoclide/coc-eslint](https://github.com/neoclide/coc-eslint)
 * [neoclide/coc-floaterm](https://github.com/neoclide/coc-floaterm)
 * [neoclide/coc-html](https://github.com/neoclide/coc-html)
 * [neoclide/coc-json](https://github.com/neoclide/coc-json)
