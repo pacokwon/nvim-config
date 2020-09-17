@@ -20,5 +20,6 @@
             }
         }
     },
-    "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "javascriptreact", "typescriptreact"]
+    "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "javascriptreact", "typescriptreact"],
+    "prettier.requireConfig": true
 }
