@@ -4,6 +4,7 @@ call plug#begin()
 Plug 'airblade/vim-gitgutter'
 Plug 'chrisbra/Colorizer'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'jdsimcoe/panic.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
@@ -416,3 +417,12 @@ nmap <C-l> <Plug>VimwikiDiaryNextDay
 let g:loaded_netrw          = 1
 let g:loaded_netrwPlguin    = 1
 let g:vifm_replace_netrw    = 1
+
+" lua require'nvim_lsp'.tsserver.setup{ }
+
+" ====== vim-go ======
+let g:go_auto_type_info = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
