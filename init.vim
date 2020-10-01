@@ -8,7 +8,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'jdsimcoe/panic.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim', { 'commit': '23dda8602f138a9d75dd03803a79733ee783e356'}
 Plug 'junegunn/goyo.vim'
 Plug 'leafOfTree/vim-vue-plugin'
 Plug 'mattn/emmet-vim'
