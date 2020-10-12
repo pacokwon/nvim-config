@@ -14,7 +14,9 @@ Plug 'junegunn/goyo.vim'
 Plug 'leafOfTree/vim-vue-plugin'
 Plug 'leafgarland/typescript-vim'
 Plug 'mattn/emmet-vim'
-Plug 'neoclide/coc.nvim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
+Plug 'nvim-lua/diagnostic-nvim'
 Plug 'pangloss/vim-javascript'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'psf/black', { 'tag': '19.10b0' }
@@ -197,70 +199,6 @@ autocmd FileType netrw setl bufhidden=delete
 " format on save
 autocmd BufWritePre *.py execute ':Black'
 
-" ====== coc.nvim ======
-" TextEdit might fail if hidden is not set.
-set hidden
-
-" Some servers have issues with backup files, see #649.
-set nobackup
-set nowritebackup
-
-" Give more space for displaying messages.
-set cmdheight=2
-
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
-set updatetime=300
-
-" Don't pass messages to |ins-completion-menu|.
-set shortmess+=c
-
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-set signcolumn=yes
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-if has('patch8.1.1068')
-  " Use `complete_info` if your (Neo)Vim version supports it.
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-" Add (Neo)Vim's native statusline support.
-" NOTE: Please see `:h coc-status` for integrations with external plugins that
-" provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
 " ====== vim-airline ======
 let theme_mappings = {
     \'onedarkpaco': 'onedark',
@@ -431,3 +369,59 @@ let g:go_highlight_function_calls = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
+
+set completeopt=menuone,noinsert,noselect
+let g:completion_matching_strategy_list=['exact', 'substring', 'fuzzy']
+let g:diagnostic_enable_virtual_text = 1
+let g:completion_trigger_character = ['.', '::']
+
+lua <<EOF
+    local custom_attach = function(client)
+        print("'" .. client.name .."' language server started");
+
+        require'completion'.on_attach(client)
+        require'diagnostic'.on_attach(client)
+    end
+
+    require'nvim_lsp'.gopls.setup{ on_attach=custom_attach }
+    require'nvim_lsp'.diagnosticls.setup{
+        on_attach = custom_attach,
+        filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+        init_options = {
+            linters = {
+                eslint = {
+                    command = './node_modules/.bin/eslint',
+                    rootPatterns = { '.git' },
+                    debounce = 100,
+                    args = { '--stdin', '--stdin-filename', '%filepath', '--format', 'json' },
+                    sourceName = 'eslint',
+                    parseJson = {
+                        errorsRoot = '[0].messages',
+                        line = 'line',
+                        column = 'column',
+                        endLine = 'endLine',
+                        endColumn = 'endColumn',
+                        message = '[eslint] ${message} [${ruleId}]',
+                        security = 'severity'
+                    },
+                    securities = {
+                        [2] = 'error',
+                        [1] = 'warning'
+                    }
+                }
+            },
+            filetypes = {
+                javascript = 'eslint',
+                javascriptreact = 'eslint',
+                typescript = 'eslint',
+                typescriptreact = 'eslint'
+            },
+            formatFiletypes = {
+               javascript = 'prettier',
+               javascriptreact = 'prettier',
+               typescript = 'prettier',
+               typescriptreact = 'prettier'
+            }
+        }
+    }
+EOF
