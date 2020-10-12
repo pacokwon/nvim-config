@@ -18,6 +18,7 @@ Plug 'neoclide/coc.nvim'
 Plug 'pangloss/vim-javascript'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'psf/black', { 'tag': '19.10b0' }
+Plug 'rust-lang/rust.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'tpope/vim-commentary'
@@ -161,6 +162,7 @@ autocmd FileType c nnoremap <silent> <buffer> <F9> :vsplit \| terminal gcc-9 % -
 autocmd FileType cpp nnoremap <silent> <buffer> <F9> :vsplit \| terminal g++-9 -std=c++17 -Wall -Wextra % -o %< && ./%< <CR>:startinsert<CR>
 autocmd FileType go nnoremap <silent> <buffer> <F9> :w<CR>:!clear; go run % <CR>
 autocmd FileType scala nnoremap <silent> <buffer> <F9> :w<CR>:!clear; scala % <CR>
+autocmd FileType javascript nnoremap <silent> <buffer> <F9> :vsplit \| terminal node %<CR>:startinsert<CR>
 
 " tsconfig.json is actually jsonc, help TypeScript set the correct filetype
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
@@ -397,7 +399,6 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
-autocmd! BufRead,BufNewFile *.md :Goyo 120
 
 nnoremap <silent> <leader>gy :Goyo<CR>
 
@@ -414,6 +415,7 @@ let g:gitgutter_map_keys = 0
 let g:vimwiki_list = [
     \{'path': '~/vimwiki', 'syntax': 'markdown', 'ext': '.md'}
 \]
+let g:vimwiki_conceallevel = 1
 nnoremap <leader>wf :Files ~/vimwiki<CR>
 nmap <C-h> <Plug>VimwikiDiaryPrevDay
 nmap <C-l> <Plug>VimwikiDiaryNextDay
@@ -422,8 +424,6 @@ nmap <C-l> <Plug>VimwikiDiaryNextDay
 let g:loaded_netrw          = 1
 let g:loaded_netrwPlguin    = 1
 let g:vifm_replace_netrw    = 1
-
-" lua require'nvim_lsp'.tsserver.setup{ }
 
 " ====== vim-go ======
 let g:go_auto_type_info = 1
