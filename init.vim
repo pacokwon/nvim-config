@@ -4,6 +4,7 @@ call plug#begin()
 Plug 'airblade/vim-gitgutter'
 Plug 'chrisbra/Colorizer'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'embark-theme/vim', { 'as': 'embark' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'jdsimcoe/panic.vim'
 Plug 'jiangmiao/auto-pairs'
@@ -269,7 +270,8 @@ let theme_mappings = {
     \'solarized8': 'solarized',
     \'dracula': 'dracula',
     \'panic': 'panic',
-    \'night-owl': 'night_owl'
+    \'night-owl': 'night_owl',
+    \'embark': 'embark'
 \}
 
 " powerline fonts in airline
