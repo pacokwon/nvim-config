@@ -220,7 +220,11 @@ let g:airline_theme=get(theme_mappings, get(g:, 'colors_name', 'default'), 'mini
 autocmd ColorScheme * let g:airline_theme=get(theme_mappings, get(g:, 'colors_name', 'default'), 'minimalist')
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#formatter='unique_tail'
-let g:airline#extensions#coc#enabled = 1
+" let g:airline#extensions#coc#enabled = 1
+let g:airline_left_sep = "\uE0BC"
+let g:airline_left_alt_sep = "\uE0BD"
+let g:airline_right_sep = "\uE0BE"
+let g:airline_right_alt_sep = "\uE0BF"
 
 " ====== fzf & fzf.vim ======
 " Terminal buffer options for fzf
