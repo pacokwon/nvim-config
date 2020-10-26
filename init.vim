@@ -4,7 +4,6 @@ call plug#begin()
 Plug 'airblade/vim-gitgutter'
 Plug 'chrisbra/Colorizer'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'embark-theme/vim', { 'as': 'embark' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'jdsimcoe/panic.vim'
 Plug 'jiangmiao/auto-pairs'
@@ -19,6 +18,7 @@ Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-lua/diagnostic-nvim'
 Plug 'pangloss/vim-javascript'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'psf/black', { 'tag': '19.10b0' }
 Plug 'rust-lang/rust.vim'
 Plug 'sheerun/vim-polyglot'
@@ -38,6 +38,7 @@ Plug 'voldikss/vim-floaterm'
 Plug 'arcticicestudio/nord-vim'
 Plug 'arzg/vim-colors-xcode'
 Plug 'dracula/vim'
+Plug 'embark-theme/vim', { 'as': 'embark' }
 Plug 'haishanh/night-owl.vim'
 Plug 'lifepillar/vim-solarized8'
 Plug 'morhetz/gruvbox'
@@ -375,12 +376,15 @@ let g:go_highlight_functions = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
 
+" ====== diagnostic nvim ======
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list=['exact', 'substring', 'fuzzy']
 let g:diagnostic_enable_virtual_text = 1
 let g:completion_trigger_character = ['.', '::']
 
 lua <<EOF
+    local nvim_lsp = require('nvim_lsp')
+
     local custom_attach = function(client)
         print("'" .. client.name .."' language server started");
 
@@ -388,8 +392,10 @@ lua <<EOF
         require'diagnostic'.on_attach(client)
     end
 
-    require'nvim_lsp'.gopls.setup{ on_attach=custom_attach }
-    require'nvim_lsp'.diagnosticls.setup{
+    nvim_lsp.gopls.setup { on_attach=custom_attach }
+    nvim_lsp.cssls.setup { on_attach=custom_attach }
+    nvim_lsp.html.setup { on_attach=custom_attach }
+    nvim_lsp.diagnosticls.setup {
         on_attach = custom_attach,
         filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
         init_options = {
@@ -428,5 +434,12 @@ lua <<EOF
                typescriptreact = 'prettier'
             }
         }
+    }
+
+    require'nvim-treesitter.configs'.setup {
+      ensure_installed = { 'c', 'python', 'css', 'html', 'javascript', 'typescript', 'tsx', 'json' },
+      highlight = {
+        enable = true,
+      }
     }
 EOF
