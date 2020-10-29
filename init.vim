@@ -10,12 +10,14 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim', { 'commit': '23dda8602f138a9d75dd03803a79733ee783e356'}
 Plug 'junegunn/goyo.vim'
+Plug 'leafgarland/typescript-vim'
 Plug 'leafOfTree/vim-vue-plugin'
 Plug 'mattn/emmet-vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-lua/diagnostic-nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'peitalin/vim-jsx-typescript'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'psf/black', { 'tag': '19.10b0' }
 Plug 'rust-lang/rust.vim'
@@ -42,6 +44,7 @@ Plug 'haishanh/night-owl.vim'
 Plug 'lifepillar/vim-solarized8'
 Plug 'morhetz/gruvbox'
 Plug 'pacokwon/onedarkpaco.vim'
+Plug 'srcery-colors/srcery-vim'
 Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
@@ -61,6 +64,11 @@ let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_contrast_light='soft'
 
 colorscheme gruvbox
+" ====== srcery ======
+let g:srcery_italic = 1
+let g:srcery_transparent_background = 1
+let g:srcery_inverse_matches = 1
+
 
 " ========== Editor Configurations ==========
 set number
@@ -82,6 +90,7 @@ set foldmethod=manual
 " search related stuff
 set hlsearch
 set incsearch
+set inccommand=split
 set ignorecase
 set smartcase
 
@@ -212,7 +221,8 @@ let theme_mappings = {
     \'dracula': 'dracula',
     \'panic': 'panic',
     \'night-owl': 'night_owl',
-    \'embark': 'embark'
+    \'embark': 'embark',
+    \'srcery': 'srcery'
 \}
 
 " powerline fonts in airline
