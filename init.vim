@@ -5,7 +5,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'chrisbra/Colorizer'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'jdsimcoe/panic.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim', { 'commit': '23dda8602f138a9d75dd03803a79733ee783e356'}
@@ -19,6 +18,7 @@ Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-lua/diagnostic-nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'preservim/tagbar'
 Plug 'psf/black', { 'tag': '19.10b0' }
 Plug 'rust-lang/rust.vim'
 Plug 'ryanoasis/vim-devicons'
@@ -41,7 +41,9 @@ Plug 'arzg/vim-colors-xcode'
 Plug 'dracula/vim'
 Plug 'embark-theme/vim', { 'as': 'embark' }
 Plug 'haishanh/night-owl.vim'
+Plug 'jdsimcoe/panic.vim'
 Plug 'lifepillar/vim-solarized8'
+Plug 'mhartington/oceanic-next'
 Plug 'morhetz/gruvbox'
 Plug 'pacokwon/onedarkpaco.vim'
 Plug 'srcery-colors/srcery-vim'
@@ -71,6 +73,10 @@ let g:srcery_italic = 1
 let g:srcery_transparent_background = 1
 let g:srcery_inverse_matches = 1
 
+" ====== OceanicNext ======
+let g:oceanic_next_terminal_bold = 1
+let g:oceanic_next_terminal_italic = 1
+
 
 " ========== Editor Configurations ==========
 set number
@@ -82,7 +88,6 @@ set shiftwidth=4
 set tabstop=4
 set smartindent
 set autoindent
-set nowrap
 set backspace=indent,eol,start
 set wildmenu
 set list
@@ -99,6 +104,7 @@ set smartcase
 " enable mouse
 set mouse=a
 set guicursor=
+set cursorline
 
 set formatoptions-=a    " No autoformatting
 set formatoptions+=c    " Respect textwidth
@@ -195,6 +201,8 @@ autocmd FileType gitcommit setlocal spell spelllang=en_us | set complete+=kspell
 autocmd FileType csv set noexpandtab
 autocmd FileType typescriptreact setlocal indentexpr=
 
+autocmd TextYankPost * silent! lua vim.highlight.on_yank {on_visual=false}
+
 " ========== Plugin Configurations ==========
 " ====== netrw ======
 let g:netrw_banner=0        " disable banner
@@ -226,7 +234,8 @@ let theme_mappings = {
     \'panic': 'panic',
     \'night-owl': 'night_owl',
     \'embark': 'embark',
-    \'srcery': 'srcery'
+    \'srcery': 'srcery',
+    \'OceanicNext': 'oceanicnext',
 \}
 
 " powerline fonts in airline
