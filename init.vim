@@ -98,6 +98,11 @@ set smartcase
 set mouse=a
 set guicursor=
 
+set formatoptions-=a    " No autoformatting
+set formatoptions+=c    " Respect textwidth
+set formatoptions-=o    " Don't continue comments on o and O
+set formatoptions+=r    " Do continue on enter
+
 if has("clipboard")
     set clipboard=unnamedplus
 endif
@@ -182,9 +187,6 @@ autocmd FileType jsonc syntax match Comment +\/\/.\+$+
 
 " remove whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
-
-" disable automatic comment insertion
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us | set complete+=kspell
 autocmd FileType gitcommit setlocal spell spelllang=en_us | set complete+=kspell
