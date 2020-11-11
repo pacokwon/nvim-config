@@ -58,7 +58,7 @@ nvim_lsp.diagnosticls.setup {
 }
 
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { 'c', 'python', 'css', 'html', 'javascript', 'typescript', 'tsx', 'json' },
+  ensure_installed = { 'c', 'python', 'css', 'html', 'javascript', 'typescript', 'json' }, -- TODO: add .tsx once available
   highlight = {
     enable = true,
   }
