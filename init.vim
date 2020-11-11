@@ -13,12 +13,12 @@ Plug 'junegunn/goyo.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'leafOfTree/vim-vue-plugin'
 Plug 'mattn/emmet-vim'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-lua/diagnostic-nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'peitalin/vim-jsx-typescript'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'psf/black', { 'tag': '19.10b0' }
 Plug 'rust-lang/rust.vim'
 Plug 'ryanoasis/vim-devicons'
@@ -53,6 +53,8 @@ filetype plugin indent on
 set termguicolors
 set background=dark
 syntax on
+
+lua require('init')
 
 " ========== Colorscheme Configurations ==========
 " ====== vim-solarized8 ======
@@ -391,9 +393,18 @@ let g:go_highlight_extra_types = 1
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list=['exact', 'substring', 'fuzzy']
 let g:diagnostic_enable_virtual_text = 1
+let g:diagnostic_insert_delay = 1
 let g:completion_trigger_character = ['.', '::']
+highlight! LspDiagnosticsHint guifg=#ff9a00
+highlight! LspDiagnosticsError guifg=#ff4d00
 
-" ====== vim-prettier ======
-autocmd BufWritePre *.js,*.jsx,*.ts,*.tsx,*.css,*.less,*.scss,*.json PrettierAsync
+nnoremap <silent>K :lua vim.lsp.buf.hover()<CR>
 
-lua require('init')
+" ====== coc.nvim ======
+set hidden
+set nobackup
+set nowritebackup
+set cmdheight=2
+set updatetime=300
+set shortmess+=c
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
