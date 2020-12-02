@@ -187,16 +187,15 @@ autocmd FileType javascript nnoremap <silent> <buffer> <F9> :vsplit \| terminal 
 
 " tsconfig.json is actually jsonc, help TypeScript set the correct filetype
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
-autocmd FileType jsonc syntax match Comment +\/\/.\+$+
+autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us | set complete+=kspell
 autocmd BufWinEnter,BufNewFile * setlocal formatoptions-=o
 
 " remove whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
-autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us | set complete+=kspell
-autocmd FileType gitcommit setlocal spell spelllang=en_us | set complete+=kspell
 autocmd FileType csv set noexpandtab
-autocmd FileType typescriptreact setlocal indentexpr=
+autocmd FileType gitcommit setlocal spell spelllang=en_us | set complete+=kspell
+autocmd FileType jsonc syntax match Comment +\/\/.\+$+
 
 autocmd TextYankPost * silent! lua vim.highlight.on_yank {on_visual=false}
 
