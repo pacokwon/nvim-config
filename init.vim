@@ -400,8 +400,6 @@ let g:go_highlight_extra_types = 1
 " ====== diagnostic nvim ======
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list=['exact', 'substring', 'fuzzy']
-let g:diagnostic_enable_virtual_text = 1
-let g:diagnostic_insert_delay = 1
 let g:completion_trigger_character = ['.', '::']
 highlight! LspDiagnosticsHint guifg=#ff9a00
 highlight! LspDiagnosticsError guifg=#ff4d00
