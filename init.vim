@@ -9,13 +9,10 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim', { 'commit': '23dda8602f138a9d75dd03803a79733ee783e356'}
 Plug 'junegunn/goyo.vim'
-Plug 'leafgarland/typescript-vim'
 Plug 'leafOfTree/vim-vue-plugin'
 Plug 'mattn/emmet-vim'
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
-Plug 'nvim-lua/diagnostic-nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'preservim/tagbar'
@@ -248,7 +245,6 @@ let g:airline_theme=get(theme_mappings, get(g:, 'colors_name', 'default'), 'mini
 autocmd ColorScheme * let g:airline_theme=get(theme_mappings, get(g:, 'colors_name', 'default'), 'minimalist')
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#formatter='unique_tail'
-" let g:airline#extensions#coc#enabled = 1
 let g:airline_left_sep = "\uE0BC"
 let g:airline_left_alt_sep = "\uE0BD"
 let g:airline_right_sep = "\uE0BE"
@@ -413,11 +409,3 @@ highlight! LspDiagnosticsError guifg=#ff4d00
 
 nnoremap <silent>K :lua vim.lsp.buf.hover()<CR>
 
-" ====== coc.nvim ======
-set hidden
-set nobackup
-set nowritebackup
-set cmdheight=2
-set updatetime=300
-set shortmess+=c
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
