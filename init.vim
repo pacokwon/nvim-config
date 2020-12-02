@@ -236,6 +236,10 @@ let theme_mappings = {
     \'embark': 'embark',
     \'srcery': 'srcery',
     \'OceanicNext': 'oceanicnext',
+    \'xcodedark': 'xcodedark',
+    \'xcodedarkhc': 'xcodedarkhc',
+    \'xcodelight': 'xcodelight',
+    \'xcodelighthc': 'xcodelighthc',
 \}
 
 " powerline fonts in airline
