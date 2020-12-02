@@ -108,7 +108,6 @@ set cursorline
 
 set formatoptions-=a    " No autoformatting
 set formatoptions+=c    " Respect textwidth
-set formatoptions-=o    " Don't continue comments on o and O
 set formatoptions+=r    " Do continue on enter
 
 if has("clipboard")
@@ -192,6 +191,7 @@ autocmd FileType javascript nnoremap <silent> <buffer> <F9> :vsplit \| terminal 
 " tsconfig.json is actually jsonc, help TypeScript set the correct filetype
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
 autocmd FileType jsonc syntax match Comment +\/\/.\+$+
+autocmd BufWinEnter,BufNewFile * setlocal formatoptions-=o
 
 " remove whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
