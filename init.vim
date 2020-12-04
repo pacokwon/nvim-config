@@ -398,11 +398,28 @@ let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
 
 " ====== diagnostic nvim ======
+nnoremap <silent>K :lua vim.lsp.buf.hover()<CR>
+nnoremap <silent>gd :lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent>ga :lua vim.lsp.buf.code_action()<CR>
+nnoremap <silent>gn :lua vim.lsp.diagnostic.goto_next()<CR>
+nnoremap <silent>gp :lua vim.lsp.diagnostic.goto_prev()<CR>
+nnoremap <silent>go :lua vim.lsp.diagnostic.set_loclist()<CR>
+nnoremap <silent>gr :lua vim.lsp.buf.rename()<CR>
+
+" Hint Related Highlight Groups. Underline must be linked manually. see :h hl-LspDiagnosticsUnderlineHint
+hi LspDiagnosticsDefaultHint guifg=#FF8E24
+hi link LspDiagnosticsUnderlineHint LspDiagnosticsDefaultHint
+
+" Warning Related Highlight Groups
+hi LspDiagnosticsDefaultWarning guifg=#FFAE2B
+hi link LspDiagnosticsUnderlineWarning LspDiagnosticsDefaultWarning
+
+" Error Related Highlight Groups
+hi LspDiagnosticsDefaultError guifg=#F74848
+hi link LspDiagnosticsUnderlineError LspDiagnosticsDefaultError
+
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list=['exact', 'substring', 'fuzzy']
 let g:completion_trigger_character = ['.', '::']
-highlight! LspDiagnosticsHint guifg=#ff9a00
-highlight! LspDiagnosticsError guifg=#ff4d00
 
-nnoremap <silent>K :lua vim.lsp.buf.hover()<CR>
-
+autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
