@@ -30,7 +30,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 nvim_lsp.cssls.setup { on_attach=custom_attach }
 nvim_lsp.html.setup { on_attach=custom_attach }
 nvim_lsp.tsserver.setup { on_attach=custom_attach }
-nvim_lsp.ccls.setup{ on_attach=custom_attach }
+nvim_lsp.clangd.setup{ on_attach=custom_attach }
 nvim_lsp.diagnosticls.setup {
     on_attach = custom_attach,
     filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'typescript.tsx' },
@@ -64,7 +64,7 @@ nvim_lsp.diagnosticls.setup {
         formatters = {
             prettier = {
                 command = './node_modules/.bin/prettier',
-                rootPatterns= { '.prettierrc', '.git' },
+                rootPatterns = { '.prettierrc', '.git' },
                 args = { '--stdin-filepath', '%filename' },
                 requiredFiles = { ".prettierrc" },
             }
