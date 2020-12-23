@@ -407,15 +407,15 @@ nnoremap <silent>go :lua vim.lsp.diagnostic.set_loclist()<CR>
 nnoremap <silent>gr :lua vim.lsp.buf.rename()<CR>
 
 " Hint Related Highlight Groups. Underline must be linked manually. see :h hl-LspDiagnosticsUnderlineHint
-hi LspDiagnosticsDefaultHint guifg=#FF8E24
+hi LspDiagnosticsDefaultHint guifg=#FF8E24 gui=undercurl
 hi link LspDiagnosticsUnderlineHint LspDiagnosticsDefaultHint
 
 " Warning Related Highlight Groups
-hi LspDiagnosticsDefaultWarning guifg=#FFAE2B
+hi LspDiagnosticsDefaultWarning guifg=#FFAE2B gui=undercurl
 hi link LspDiagnosticsUnderlineWarning LspDiagnosticsDefaultWarning
 
 " Error Related Highlight Groups
-hi LspDiagnosticsDefaultError guifg=#F74848
+hi LspDiagnosticsDefaultError guifg=#F74848 gui=undercurl
 hi link LspDiagnosticsUnderlineError LspDiagnosticsDefaultError
 
 set completeopt=menuone,noinsert,noselect
