@@ -64,7 +64,6 @@ let g:solarized_extra_hi_groups=1
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_contrast_light='soft'
 
-colorscheme gruvbox
 " ====== srcery ======
 let g:srcery_italic = 1
 let g:srcery_transparent_background = 1
@@ -74,6 +73,7 @@ let g:srcery_inverse_matches = 1
 let g:oceanic_next_terminal_bold = 1
 let g:oceanic_next_terminal_italic = 1
 
+colorscheme srcery
 
 " ========== Editor Configurations ==========
 set number
