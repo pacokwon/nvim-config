@@ -248,6 +248,9 @@ let g:airline_left_alt_sep = "\uE0BD"
 let g:airline_right_sep = "\uE0BE"
 let g:airline_right_alt_sep = "\uE0BF"
 
+" ====== colorizer ======
+nnoremap <silent> <leader>tc :ColorToggle<CR>
+
 " ====== fzf & fzf.vim ======
 " Terminal buffer options for fzf
 autocmd! FileType fzf
