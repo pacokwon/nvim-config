@@ -98,6 +98,7 @@ set smartcase
 
 " enable mouse
 set mouse=a
+" block cursor; also reduces latency
 set guicursor=
 set cursorline
 
@@ -313,6 +314,7 @@ autocmd FileType jsonc setlocal commentstring=//%s
 " ====== fugitive ======
 " launch Git status
 nnoremap <leader>gg :vertical Gstatus<CR>
+nnoremap <leader>go :Gstatus \| only<CR>
 nnoremap <leader>gp :Gpush<CR>
 
 " ====== vim-floaterm ======
