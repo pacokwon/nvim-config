@@ -22,7 +22,7 @@ end
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
         underline = true,
-        virtual_text = true,
+        virtual_text = false,
         update_in_insert = false
     }
 )
@@ -80,8 +80,8 @@ nvim_lsp.diagnosticls.setup {
 }
 
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { 'c', 'python', 'css', 'html', 'javascript', 'typescript', 'json', 'tsx' },
   highlight = {
     enable = true,
   }
+  ensure_installed = { 'c', 'python', 'css', 'html', 'javascript', 'typescript', 'json', 'tsx', 'jsdoc' },
 }
