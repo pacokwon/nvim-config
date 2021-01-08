@@ -430,5 +430,3 @@ let g:completion_trigger_character = ['.', '::']
 let g:completion_confirm_key = ""
 imap <expr> <cr>  pumvisible() ? complete_info()["selected"] != "-1" ?
                  \ "\<Plug>(completion_confirm_completion)"  : "\<c-e>\<CR>" :  "\<CR>"
-
-autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
