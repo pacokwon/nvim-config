@@ -408,7 +408,9 @@ nnoremap <silent>ga :lua vim.lsp.buf.code_action()<CR>
 nnoremap <silent>gn :lua vim.lsp.diagnostic.goto_next()<CR>
 nnoremap <silent>gp :lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <silent>go :lua vim.lsp.diagnostic.set_loclist()<CR>
+nnoremap <silent>gl :lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
 nnoremap <silent>gr :lua vim.lsp.buf.rename()<CR>
+nnoremap <silent>gf :lua vim.lsp.buf.formatting()<CR>
 
 " Hint Related Highlight Groups. Underline must be linked manually. see :h hl-LspDiagnosticsUnderlineHint
 hi LspDiagnosticsDefaultHint guifg=#FF8E24 gui=undercurl
