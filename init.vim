@@ -107,6 +107,8 @@ set formatoptions-=a    " No autoformatting
 set formatoptions+=c    " Respect textwidth
 set formatoptions+=r    " Do continue on enter
 
+set splitbelow
+
 if has("clipboard")
     set clipboard=unnamedplus
 endif
