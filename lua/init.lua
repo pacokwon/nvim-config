@@ -30,7 +30,8 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 nvim_lsp.cssls.setup { on_attach=custom_attach }
 nvim_lsp.html.setup { on_attach=custom_attach }
 nvim_lsp.tsserver.setup { on_attach=custom_attach }
-nvim_lsp.clangd.setup{ on_attach=custom_attach }
+nvim_lsp.clangd.setup { on_attach=custom_attach }
+nvim_lsp.rls.setup { on_attach=custom_attach }
 nvim_lsp.diagnosticls.setup {
     on_attach = custom_attach,
     filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'typescript.tsx' },
@@ -82,6 +83,6 @@ nvim_lsp.diagnosticls.setup {
 require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
-  }
-  ensure_installed = { 'c', 'python', 'css', 'html', 'javascript', 'typescript', 'json', 'tsx', 'jsdoc' },
+  },
+  ensure_installed = { 'c', 'python', 'css', 'html', 'javascript', 'typescript', 'json', 'tsx', 'jsdoc', 'rust' }
 }
