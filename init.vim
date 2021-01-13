@@ -91,7 +91,7 @@ set listchars=eol:⏎,tab:⍿·,space:·,trail:␠,nbsp:⎵
 set foldmethod=manual
 
 " search related stuff
-set hlsearch
+set nohlsearch
 set incsearch
 set inccommand=split
 set ignorecase
@@ -108,6 +108,7 @@ set formatoptions+=c    " Respect textwidth
 set formatoptions+=r    " Do continue on enter
 
 set splitbelow
+set scrolloff=8
 
 if has("clipboard")
     set clipboard=unnamedplus
