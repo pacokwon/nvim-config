@@ -83,6 +83,7 @@ nvim_lsp.diagnosticls.setup {
 require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
+    disable = { 'python' }
   },
   ensure_installed = { 'c', 'python', 'css', 'html', 'javascript', 'typescript', 'json', 'tsx', 'jsdoc', 'rust' }
 }
