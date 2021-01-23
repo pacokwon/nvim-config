@@ -101,7 +101,6 @@ set smartcase
 set mouse=a
 " block cursor; also reduces latency
 set guicursor=
-set cursorline
 
 set formatoptions-=a    " No autoformatting
 set formatoptions+=c    " Respect textwidth
