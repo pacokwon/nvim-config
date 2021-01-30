@@ -32,9 +32,10 @@ nvim_lsp.html.setup { on_attach=custom_attach }
 nvim_lsp.tsserver.setup { on_attach=custom_attach }
 nvim_lsp.clangd.setup { on_attach=custom_attach }
 nvim_lsp.rls.setup { on_attach=custom_attach }
+nvim_lsp.vuels.setup { on_attach=custom_attach }
 nvim_lsp.diagnosticls.setup {
     on_attach = custom_attach,
-    filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'typescript.tsx' },
+    filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'typescript.tsx', 'vue' },
     init_options = {
         linters = {
             eslint = {
@@ -60,7 +61,8 @@ nvim_lsp.diagnosticls.setup {
             javascriptreact = 'eslint',
             typescript = 'eslint',
             typescriptreact = 'eslint',
-            ["typescript.tsx"] = 'eslint'
+            ["typescript.tsx"] = 'eslint',
+            vue = 'eslint',
         },
         formatters = {
             prettier = {
@@ -75,7 +77,8 @@ nvim_lsp.diagnosticls.setup {
            javascriptreact = 'prettier',
            typescript = 'prettier',
            typescriptreact = 'prettier',
-           ["typescript.tsx"] = 'prettier'
+           ["typescript.tsx"] = 'prettier',
+           vue = 'prettier',
         }
     }
 }
