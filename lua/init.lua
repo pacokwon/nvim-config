@@ -12,7 +12,7 @@ end
 local custom_attach = function(client)
     print("'" .. client.name .."' language server started");
 
-    require'completion'.on_attach(client)
+    -- require'completion'.on_attach(client)
 
     if client.resolved_capabilities.document_formatting then
         attach_formatting(client)
@@ -86,4 +86,16 @@ require'nvim-treesitter.configs'.setup {
     disable = { 'python' }
   },
   ensure_installed = { 'c', 'python', 'css', 'html', 'javascript', 'typescript', 'json', 'tsx', 'jsdoc', 'rust' }
+}
+
+require'compe'.setup {
+    enabled = true;
+    autocomplete = true;
+    min_length = 1;
+    source = {
+        path = true;
+        buffer = true;
+        nvim_lsp = true;
+        spell = true;
+    };
 }

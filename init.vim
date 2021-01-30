@@ -5,6 +5,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'chrisbra/Colorizer'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'hrsh7th/nvim-compe'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim', { 'commit': '23dda8602f138a9d75dd03803a79733ee783e356'}
@@ -426,9 +427,13 @@ hi! link LspDiagnosticsUnderlineWarning LspDiagnosticsDefaultWarning
 hi LspDiagnosticsDefaultError guifg=#F74848 gui=undercurl
 hi! link LspDiagnosticsUnderlineError LspDiagnosticsDefaultError
 
-set completeopt=menuone,noinsert,noselect
+set completeopt=menu,menuone,noselect
 let g:completion_matching_strategy_list=['exact', 'substring', 'fuzzy']
 let g:completion_trigger_character = ['.', '::']
 let g:completion_confirm_key = ""
 imap <expr> <cr>  pumvisible() ? complete_info()["selected"] != "-1" ?
                  \ "\<Plug>(completion_confirm_completion)"  : "\<c-e>\<CR>" :  "\<CR>"
+
+" ====== nvim-compe ======
+inoremap <silent><expr> <C-i> compe#complete()
+inoremap <silent><expr> <C-e> compe#close('<C-e>')
