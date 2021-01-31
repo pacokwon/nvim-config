@@ -14,7 +14,7 @@ Plug 'leafOfTree/vim-vue-plugin'
 Plug 'mattn/emmet-vim'
 Plug 'mhinz/vim-startify'
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
+" Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'psf/black', { 'tag': '19.10b0' }
@@ -428,12 +428,7 @@ hi LspDiagnosticsDefaultError guifg=#F74848 gui=undercurl
 hi! link LspDiagnosticsUnderlineError LspDiagnosticsDefaultError
 
 set completeopt=menu,menuone,noselect
-let g:completion_matching_strategy_list=['exact', 'substring', 'fuzzy']
-let g:completion_trigger_character = ['.', '::']
-let g:completion_confirm_key = ""
-imap <expr> <cr>  pumvisible() ? complete_info()["selected"] != "-1" ?
-                 \ "\<Plug>(completion_confirm_completion)"  : "\<c-e>\<CR>" :  "\<CR>"
 
 " ====== nvim-compe ======
-inoremap <silent><expr> <C-i> compe#complete()
+inoremap <silent><expr> <C-f> compe#complete()
 inoremap <silent><expr> <C-e> compe#close('<C-e>')
