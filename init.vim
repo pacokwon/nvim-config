@@ -429,6 +429,9 @@ hi! link LspDiagnosticsUnderlineError LspDiagnosticsDefaultError
 
 set completeopt=menu,menuone,noselect
 
+let g:vim_vue_plugin_use_typescript = 1
+let g:vim_vue_plugin_use_scss = 1
+
 " ====== nvim-compe ======
 inoremap <silent><expr> <C-f> compe#complete()
 inoremap <silent><expr> <C-e> compe#close('<C-e>')
