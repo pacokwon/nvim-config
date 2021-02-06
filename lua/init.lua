@@ -29,7 +29,10 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 
 nvim_lsp.cssls.setup { on_attach=custom_attach }
 nvim_lsp.html.setup { on_attach=custom_attach }
-nvim_lsp.tsserver.setup { on_attach=custom_attach }
+nvim_lsp.tsserver.setup {
+    on_attach = custom_attach,
+    filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'typescript.tsx', 'vue'  }
+}
 nvim_lsp.clangd.setup { on_attach=custom_attach }
 nvim_lsp.rls.setup { on_attach=custom_attach }
 nvim_lsp.vuels.setup { on_attach=custom_attach }
