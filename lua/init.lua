@@ -1,22 +1,7 @@
 local nvim_lsp = require('lspconfig')
 
-local attach_formatting = function(client)
-    if client.name == "tsserver" then return end
-
-    vim.api.nvim_command [[augroup Format]]
-    vim.api.nvim_command [[autocmd! * <buffer>]]
-    vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting()]]
-    vim.api.nvim_command [[augroup END]]
-end
-
 local custom_attach = function(client)
     print("'" .. client.name .."' language server started");
-
-    -- require'completion'.on_attach(client)
-
-    if client.resolved_capabilities.document_formatting then
-        attach_formatting(client)
-    end
 end
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
