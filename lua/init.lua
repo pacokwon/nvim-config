@@ -21,6 +21,7 @@ nvim_lsp.tsserver.setup {
 nvim_lsp.clangd.setup { on_attach=custom_attach }
 nvim_lsp.rls.setup { on_attach=custom_attach }
 nvim_lsp.vuels.setup { on_attach=custom_attach }
+nvim_lsp.pyls.setup { on_attach=custom_attach }
 nvim_lsp.diagnosticls.setup {
     on_attach = custom_attach,
     filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'typescript.tsx', 'vue' },

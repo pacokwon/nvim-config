@@ -1,3 +1,5 @@
+let g:polyglot_disabled = ['python-indent']
+
 call plug#begin()
 
 " utility plugins
