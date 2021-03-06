@@ -6,7 +6,6 @@ call plug#begin()
 Plug 'airblade/vim-gitgutter'
 Plug 'chrisbra/Colorizer'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'hrsh7th/nvim-compe'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
@@ -16,10 +15,8 @@ Plug 'leafOfTree/vim-vue-plugin'
 Plug 'mattn/emmet-vim'
 Plug 'mhinz/vim-startify'
 Plug 'neovim/nvim-lspconfig'
-" Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'peitalin/vim-jsx-typescript'
-Plug 'psf/black', { 'tag': '19.10b0' }
 Plug 'rust-lang/rust.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'styled-components/vim-styled-components', { 'branch': 'develop' }
@@ -218,10 +215,6 @@ let g:netrw_localrmdir='rm -r'
 " https://github.com/tpope/vim-vinegar/issues/13#issuecomment-47133890
 autocmd FileType netrw setl bufhidden=delete
 
-" ====== black.vim ======
-" format on save
-autocmd BufWritePre *.py execute ':Black'
-
 " ====== vim-airline ======
 let theme_mappings = {
     \'onedarkpaco': 'onedark',
@@ -398,13 +391,6 @@ nmap <C-l> <Plug>VimwikiDiaryNextDay
 let g:loaded_netrw          = 1
 let g:loaded_netrwPlguin    = 1
 let g:vifm_replace_netrw    = 1
-
-" ====== vim-go ======
-let g:go_auto_type_info = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_extra_types = 1
 
 " ====== diagnostic nvim ======
 nnoremap <silent>K :lua vim.lsp.buf.hover()<CR>
