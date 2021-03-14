@@ -54,26 +54,6 @@ syntax on
 
 lua require('init')
 
-" ========== Colorscheme Configurations ==========
-" ====== vim-solarized8 ======
-let g:solarized_visibility="high"
-let g:solarized_extra_hi_groups=1
-
-" ====== gruvbox ======
-let g:gruvbox_contrast_dark='hard'
-let g:gruvbox_contrast_light='soft'
-
-" ====== srcery ======
-let g:srcery_italic = 1
-let g:srcery_transparent_background = 1
-let g:srcery_inverse_matches = 1
-
-" ====== OceanicNext ======
-let g:oceanic_next_terminal_bold = 1
-let g:oceanic_next_terminal_italic = 1
-
-colorscheme srcery
-
 " ========== Editor Configurations ==========
 set number
 set relativenumber
@@ -193,6 +173,7 @@ autocmd FileType rust nnoremap <silent> <buffer> <F9> :split \| terminal rustc %
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us | set complete+=kspell
 autocmd BufWinEnter,BufNewFile * setlocal formatoptions-=o
+autocmd BufNewFile,BufRead *.fs,*.fsx,*.fsi set filetype=fsharp
 
 " remove whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -393,6 +374,7 @@ nmap <C-l> <Plug>VimwikiDiaryNextDay
 let g:loaded_netrw          = 1
 let g:loaded_netrwPlguin    = 1
 let g:vifm_replace_netrw    = 1
+nnoremap <silent> <leader>vi :Vifm<CR>
 
 " ====== diagnostic nvim ======
 nnoremap <silent>K :lua vim.lsp.buf.hover()<CR>
