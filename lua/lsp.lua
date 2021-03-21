@@ -1,4 +1,18 @@
 local nvim_lsp = require('lspconfig')
+local saga = require('lspsaga')
+
+saga.init_lsp_saga {
+    error_sign = 'E',
+    warn_sign = 'W',
+    hint_sign = 'H',
+    infor_sign= 'E',
+    code_action_icon = '▣',
+    code_action_prompt = {
+        enable = true,
+        sign = false,
+        virtual_text = true,
+    }
+}
 
 local custom_attach = function(client)
     print("'" .. client.name .."' language server started");
