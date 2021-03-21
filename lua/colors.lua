@@ -19,3 +19,7 @@ g.oceanic_next_terminal_bold = 1
 g.oceanic_next_terminal_italic = 1
 
 cmd 'colorscheme srcery'
+
+if g.colors_name == 'srcery' then
+    cmd 'highlight! link Pmenu PmenuThumb'
+end
