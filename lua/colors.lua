@@ -12,7 +12,6 @@ g.gruvbox_contrast_light = 'soft'
 
 -- ====== srcery ======
 g.srcery_italic = 1
-g.srcery_transparent_background = 1
 g.srcery_inverse_matches = 1
 
 -- ====== OceanicNext ======
