@@ -378,13 +378,14 @@ let g:vifm_replace_netrw    = 1
 nnoremap <silent> <leader>vi :Vifm<CR>
 
 " ====== diagnostic nvim ======
-nnoremap <silent>K :lua vim.lsp.buf.hover()<CR>
-nnoremap <silent>gd :lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent>ga :lua vim.lsp.buf.code_action()<CR>
-nnoremap <silent>gn :lua vim.lsp.diagnostic.goto_next()<CR>
-nnoremap <silent>gp :lua vim.lsp.diagnostic.goto_prev()<CR>
+nnoremap <silent>K  :Lspsaga hover_doc<CR>
+nnoremap <silent>gd :Lspsaga preview_definition<CR>
+nnoremap <silent>gi :lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent>ga :Lspsaga code_action<CR>
+nnoremap <silent>gl :Lspsaga show_line_diagnostics<CR>
+nnoremap <silent>gn :Lspsaga diagnostic_jump_next<CR>
+nnoremap <silent>gp :Lspsaga diagnostic_jump_prev<CR>
 nnoremap <silent>go :lua vim.lsp.diagnostic.set_loclist()<CR>
-nnoremap <silent>gl :lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
 nnoremap <silent>gr :lua vim.lsp.buf.rename()<CR>
 nnoremap <silent>gf :lua vim.lsp.buf.formatting()<CR>
 
