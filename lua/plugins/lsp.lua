@@ -1,6 +1,9 @@
 local nvim_lsp = require('lspconfig')
 local saga = require('lspsaga')
 
+-- path to fsautocomplete dll. MUST contain trailing slash
+local fsautocomplete_path = '/usr/local/share/fsautocomplete.netcore/'
+
 saga.init_lsp_saga {
     code_action_prompt = {
         enable = true,
@@ -29,6 +32,10 @@ nvim_lsp.tsserver.setup {
 }
 -- nvim_lsp.clangd.setup { on_attach=custom_attach }
 nvim_lsp.rust_analyzer.setup { on_attach = custom_attach }
+nvim_lsp.fsautocomplete.setup {
+    on_attach = custom_attach,
+    cmd = { 'dotnet', fsautocomplete_path .. 'fsautocomplete.dll', '--background-service-enabled' },
+}
 nvim_lsp.vuels.setup { on_attach = custom_attach }
 nvim_lsp.pyls.setup { on_attach = custom_attach }
 nvim_lsp.ocamllsp.setup { on_attach = custom_attach }
