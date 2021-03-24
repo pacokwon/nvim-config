@@ -3,7 +3,6 @@ let g:polyglot_disabled = ['python-indent']
 call plug#begin()
 
 " utility plugins
-Plug 'airblade/vim-gitgutter'
 Plug 'chrisbra/Colorizer'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'glepnir/lspsaga.nvim'
@@ -11,6 +10,7 @@ Plug 'hrsh7th/nvim-compe'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/goyo.vim'
 Plug 'leafOfTree/vim-vue-plugin'
+Plug 'lewis6991/gitsigns.nvim'
 Plug 'mattn/emmet-vim'
 Plug 'mhinz/vim-startify'
 Plug 'neovim/nvim-lspconfig'
@@ -301,12 +301,6 @@ nnoremap <silent> <leader>gy :Goyo<CR>
 
 " ====== vim-vue-plugin ======
 let g:vim_vue_plugin_load_full_syntax = 1
-
-" ====== vim-gitgutter ======
-nmap ) <Plug>(GitGutterNextHunk)
-nmap ( <Plug>(GitGutterPrevHunk)
-let g:gitgutter_enabled = 1
-let g:gitgutter_map_keys = 0
 
 " ====== vimwiki ======
 let g:vimwiki_list = [
