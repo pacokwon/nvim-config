@@ -8,6 +8,8 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'hrsh7th/nvim-compe'
 Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'leafOfTree/vim-vue-plugin'
 Plug 'lewis6991/gitsigns.nvim'
@@ -353,6 +355,54 @@ inoremap <silent><expr> <C-e> compe#close('<C-e>')
 
 " ====== nvim-telescope ======
 nnoremap <expr> <silent> <leader>ff (len(system('git rev-parse')) ? ':lua require"telescope.builtin".find_files()' : ':lua require"telescope.builtin".git_files()')."\<CR>"
-nnoremap <leader>fs :lua require'telescope.builtin'.grep_string()<CR>
+" nnoremap <leader>fs :lua require'telescope.builtin'.grep_string()<CR>
 nnoremap <leader>fgb :lua require'telescope.builtin'.git_branches()<CR>
 nnoremap <leader>fgs :lua require'telescope.builtin'.git_status()<CR>
+
+" ====== fzf & fzf.vim ======
+" Terminal buffer options for fzf
+autocmd! FileType fzf
+autocmd  FileType fzf set noshowmode noruler nonu nornu
+
+let g:fzf_commits_log_options = '--all --decorate --oneline --graph'
+
+if has('nvim') && exists('&winblend') && &termguicolors
+    set winblend=20
+
+    hi NormalFloat guibg=None
+    if exists('g:fzf_colors.bg')
+        call remove(g:fzf_colors, 'bg')
+    endif
+
+    if stridx($FZF_DEFAULT_OPTS, '--border') == -1
+        let $FZF_DEFAULT_OPTS .= ' --border'
+    endif
+
+    function! FloatingFZF()
+        let width = float2nr(&columns * 0.8)
+        let height = float2nr(&lines * 0.8)
+        let opts = { 'relative': 'editor',
+                    \ 'row': (&lines - height) / 2,
+                    \ 'col': (&columns - width) / 2,
+                    \ 'width': width,
+                    \ 'height': height }
+
+        call nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
+    endfunction
+
+    let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+endif
+
+set rtp+=/usr/local/opt/fzf
+
+" Rg command settings
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
+  \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
+  \   <bang>0)
+
+" search
+nnoremap <leader>fs :Rg<CR>
+nnoremap <leader>fr :Rg!<CR>
