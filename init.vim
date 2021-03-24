@@ -70,7 +70,7 @@ set autoindent
 set backspace=indent,eol,start
 set wildmenu
 set list
-set listchars=eol:⏎,tab:⍿·,space:·,trail:␠,nbsp:⎵
+set listchars=eol:¬,tab:⍿·,space:·,trail:␠,nbsp:⎵
 set foldmethod=manual
 
 " search related stuff
