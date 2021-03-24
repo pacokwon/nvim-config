@@ -246,6 +246,9 @@ nnoremap <leader>go :Gstatus \| only<CR>
 nnoremap <leader>gp :Gpush<CR>
 
 " ====== vim-floaterm ======
+let g:floaterm_width = 0.8
+let g:floaterm_height = 0.7
+
 nnoremap <silent> <leader>tn :FloatermNew<CR>
 tnoremap <silent> <leader>tn <C-\><C-n>:FloatermNew<CR>
 nnoremap <silent> <leader>tt :FloatermToggle<CR>
