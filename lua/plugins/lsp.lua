@@ -30,7 +30,7 @@ nvim_lsp.tsserver.setup {
     on_attach = custom_attach,
     filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'typescript.tsx', 'vue'  }
 }
--- nvim_lsp.clangd.setup { on_attach=custom_attach }
+nvim_lsp.clangd.setup { on_attach = custom_attach }
 nvim_lsp.rust_analyzer.setup { on_attach = custom_attach }
 nvim_lsp.fsautocomplete.setup {
     on_attach = custom_attach,
