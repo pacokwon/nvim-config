@@ -162,10 +162,6 @@ nnoremap <silent> <leader>th :sp term://zsh<CR>
 nnoremap <leader>ve :vsplit $MYVIMRC<CR>
 nnoremap <leader>vs :source $MYVIMRC<CR>
 
-if has('nvim')
-    tnoremap <C-n> <C-\><C-n>
-endif
-
 " shorthand commands for languages
 autocmd FileType python nnoremap <silent> <buffer> <F9> :vsplit \| terminal python %<CR>:startinsert<CR>
 autocmd FileType python nnoremap <silent> <buffer> <F10> :vsplit \| terminal python -i %<CR>:startinsert<CR>
