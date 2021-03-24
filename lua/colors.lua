@@ -18,6 +18,9 @@ g.srcery_inverse_matches = 1
 g.oceanic_next_terminal_bold = 1
 g.oceanic_next_terminal_italic = 1
 
+-- ====== Ayu ======
+g.ayucolor = 'light'
+
 cmd 'colorscheme srcery'
 
 if g.colors_name == 'srcery' then

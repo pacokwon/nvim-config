@@ -37,6 +37,7 @@ Plug 'voldikss/vim-floaterm'
 " colorschemes
 Plug 'arcticicestudio/nord-vim'
 Plug 'arzg/vim-colors-xcode'
+Plug 'ayu-theme/ayu-vim'
 Plug 'dracula/vim'
 Plug 'embark-theme/vim', { 'as': 'embark' }
 Plug 'haishanh/night-owl.vim'
