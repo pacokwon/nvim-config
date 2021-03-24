@@ -73,6 +73,7 @@ set wildmenu
 set list
 set listchars=eol:¬,tab:⍿·,space:·,trail:␠,nbsp:⎵
 set foldmethod=manual
+set lazyredraw " improves macro speed
 
 " search related stuff
 set nohlsearch
