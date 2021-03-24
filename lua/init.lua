@@ -1,4 +1,4 @@
 require('colors')
-require('lsp')
-require('treesitter')
-require('finder')
+require('plugins.lsp')
+require('plugins.treesitter')
+require('plugins.telescope')
