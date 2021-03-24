@@ -357,7 +357,6 @@ inoremap <silent><expr> <C-e> compe#close('<C-e>')
 
 " ====== nvim-telescope ======
 nnoremap <expr> <silent> <leader>ff (len(system('git rev-parse')) ? ':lua require"telescope.builtin".find_files()' : ':lua require"telescope.builtin".git_files()')."\<CR>"
-nnoremap <leader>fs :lua require'telescope.builtin'.grep_string{ only_sort_text = true, search = vim.fn.input("Grep for > ") }<CR>
-nnoremap <leader>fl :lua require'telescope.builtin'.grep_string()<CR>
+nnoremap <leader>fs :lua require'telescope.builtin'.grep_string()<CR>
 nnoremap <leader>fgb :lua require'telescope.builtin'.git_branches()<CR>
 nnoremap <leader>fgs :lua require'telescope.builtin'.git_status()<CR>
