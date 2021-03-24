@@ -5,6 +5,7 @@ telescope.setup {
     defaults = {
         file_sorter = require('telescope.sorters').get_fzy_sorter,
         prompt_prefix = ' > ',
+        color_devicons = true,
         file_previewer = require('telescope.previewers').vim_buffer_cat.new,
         grep_previewer = require('telescope.previewers').vim_buffer_vimgrep.new,
         qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
@@ -22,7 +23,7 @@ telescope.setup {
                 ["<C-j>"] = actions.preview_scrolling_down,
                 ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
             },
-        }
+        },
     },
     extensions = {
         fzy_native = {
