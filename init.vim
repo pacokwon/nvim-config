@@ -3,7 +3,6 @@ let g:polyglot_disabled = ['python-indent']
 call plug#begin()
 
 " utility plugins
-Plug 'chrisbra/Colorizer'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'hrsh7th/nvim-compe'
@@ -17,6 +16,7 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'mattn/emmet-vim'
 Plug 'mhinz/vim-startify'
 Plug 'neovim/nvim-lspconfig'
+Plug 'norcalli/nvim-colorizer.lua'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'

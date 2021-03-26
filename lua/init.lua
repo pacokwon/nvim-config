@@ -1,4 +1,5 @@
 require('colors')
+require('plugins.colorizer')
 require('plugins.gitsigns')
 require('plugins.lsp')
 require('plugins.treesitter')
