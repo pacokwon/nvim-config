@@ -405,3 +405,10 @@ command! -bang -nargs=* Rg
 " search
 nnoremap <leader>fs :Rg<CR>
 nnoremap <leader>fr :Rg!<CR>
+
+function! SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
