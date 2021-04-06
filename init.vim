@@ -3,6 +3,7 @@ let g:polyglot_disabled = ['python-indent']
 call plug#begin()
 
 " utility plugins
+Plug 'bfredl/nvim-miniyank'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'hrsh7th/nvim-compe'
@@ -110,6 +111,9 @@ nnoremap ; :
 nnoremap : ;
 vnoremap ; :
 vnoremap : ;
+
+map p <Plug>(miniyank-autoput)
+map P <Plug>(miniyank-autoPut)
 
 " Move line mappings
 nnoremap <S-Down> :m .+1<CR>==
