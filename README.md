@@ -45,7 +45,6 @@ Plugins I use:
 * [voldikss/vim-floaterm](https://github.com/voldikss/vim-floaterm)
 
 ### Colorschemes
-I love colorschemes
 * [arcticicestudio/nord-vim](https://github.com/arcticicestudio/nord-vim)
 * [arzg/vim-colors-xcode](https://github.com/arzg/vim-colors-xcode)
 * [ayu-theme/ayu-vim](https://github.com/ayu-theme/ayu-vim)
