@@ -3,5 +3,20 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
     disable = { 'python' }
   },
-  ensure_installed = { 'c', 'cpp', 'python', 'css', 'html', 'javascript', 'typescript', 'json', 'tsx', 'jsdoc', 'rust', 'lua' }
+  ensure_installed = {
+      'c',
+      'cpp',
+      'css',
+      'html',
+      'javascript',
+      'jsdoc',
+      'json',
+      'latex',
+      'lua',
+      'python',
+      'rust',
+      'tsx',
+      'typescript',
+      'swift',
+  }
 }
