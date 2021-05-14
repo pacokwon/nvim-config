@@ -21,7 +21,7 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-fzy-native.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'rust-lang/rust.vim'
@@ -357,7 +357,7 @@ inoremap <silent><expr> <C-e> compe#close('<C-e>')
 
 " ====== nvim-telescope ======
 nnoremap <expr> <silent> <leader>ff (len(system('git rev-parse')) ? ':lua require"telescope.builtin".find_files()' : ':lua require"telescope.builtin".git_files()')."\<CR>"
-" nnoremap <leader>fs :lua require'telescope.builtin'.grep_string()<CR>
+nnoremap <silent> <leader>ft :lua require'telescope.builtin'.grep_string{ shorten_path = true, word_match = "-w", only_sort_text = true, search = '' }<CR>
 nnoremap <leader>fgb :lua require'telescope.builtin'.git_branches()<CR>
 nnoremap <leader>fgs :lua require'telescope.builtin'.git_status()<CR>
 
