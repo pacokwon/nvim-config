@@ -7,10 +7,8 @@ Plug 'bfredl/nvim-miniyank'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'hrsh7th/nvim-compe'
-Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/goyo.vim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'leafOfTree/vim-vue-plugin'
 Plug 'lewis6991/gitsigns.nvim'
@@ -34,12 +32,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vifm/vifm.vim'
-Plug 'vim-airline/vim-airline'
 Plug 'vimwiki/vimwiki'
 Plug 'voldikss/vim-floaterm'
 
 " colorschemes
-Plug 'arcticicestudio/nord-vim'
 Plug 'arzg/vim-colors-xcode'
 Plug 'ayu-theme/ayu-vim'
 Plug 'dracula/vim'
@@ -51,7 +47,6 @@ Plug 'mhartington/oceanic-next'
 Plug 'morhetz/gruvbox'
 Plug 'pacokwon/onedarkpaco.vim'
 Plug 'srcery-colors/srcery-vim'
-Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -206,38 +201,6 @@ let g:netrw_localrmdir='rm -r'
 " https://github.com/tpope/vim-vinegar/issues/13#issuecomment-47133890
 autocmd FileType netrw setl bufhidden=delete
 
-" ====== vim-airline ======
-let theme_mappings = {
-    \'onedarkpaco': 'onedark',
-    \'nord': 'nord',
-    \'gruvbox': 'gruvbox',
-    \'solarized8_high': 'solarized',
-    \'solarized8_flat': 'solarized',
-    \'solarized8_low': 'solarized',
-    \'solarized8': 'solarized',
-    \'dracula': 'dracula',
-    \'panic': 'panic',
-    \'night-owl': 'night_owl',
-    \'embark': 'embark',
-    \'srcery': 'srcery',
-    \'OceanicNext': 'oceanicnext',
-    \'xcodedark': 'xcodedark',
-    \'xcodedarkhc': 'xcodedarkhc',
-    \'xcodelight': 'xcodelight',
-    \'xcodelighthc': 'xcodelighthc',
-\}
-
-" powerline fonts in airline
-let g:airline_powerline_fonts=1
-let g:airline_theme=get(theme_mappings, get(g:, 'colors_name', 'default'), 'minimalist')
-autocmd ColorScheme * let g:airline_theme=get(theme_mappings, get(g:, 'colors_name', 'default'), 'minimalist')
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#formatter='unique_tail'
-let g:airline_left_sep = "\uE0BC"
-let g:airline_left_alt_sep = "\uE0BD"
-let g:airline_right_sep = "\uE0BE"
-let g:airline_right_alt_sep = "\uE0BF"
-
 " ====== colorizer ======
 nnoremap <silent> <leader>tc :ColorToggle<CR>
 
@@ -267,42 +230,6 @@ let g:user_emmet_settings = {
 \      'extends' : 'jsx',
 \  },
 \}
-
-" ====== goyo ======
-let g:goyo_width=120
-
-function! s:goyo_enter()
-  set noshowmode
-  set noshowcmd
-  set wrap
-  set linebreak
-  set scrolloff=999
-  nnoremap 0 g0
-  nnoremap $ g$
-  nnoremap j gj
-  vnoremap j gj
-  nnoremap k gk
-  vnoremap k gk
-  " ...
-endfunction
-
-function! s:goyo_leave()
-  set showmode
-  set showcmd
-  set nowrap
-  set nolinebreak
-  set scrolloff=5
-  unmap j
-  unmap k
-  unmap 0
-  unmap $
-  " ...
-endfunction
-
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
-
-nnoremap <silent> <leader>gy :Goyo<CR>
 
 " ====== vim-vue-plugin ======
 let g:vim_vue_plugin_load_full_syntax = 1
