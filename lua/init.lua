@@ -1,7 +1,9 @@
-require('colors')
-require('plugins.colorizer')
-require('plugins.gitsigns')
-require('plugins.lsp')
-require('plugins.startify')
-require('plugins.treesitter')
-require('plugins.telescope')
+require'colors'
+require'plugins.colorizer'
+require'plugins.gitsigns'
+require'plugins.lsp'
+require'plugins.pears'
+require'plugins.startify'
+require'plugins.statusline'
+require'plugins.telescope'
+require'plugins.treesitter'
