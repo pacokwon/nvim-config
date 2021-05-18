@@ -6,19 +6,19 @@ g.visual_inverse = 1
 
 -- ====== vim-solarized8 ======
 g.solarized_visibility = 'high'
-g.solarized_extra_hi_groups = 1
+g.solarized_extra_hi_groups = true
 
 -- ====== gruvbox ======
 g.gruvbox_contrast_dark = 'hard'
 g.gruvbox_contrast_light = 'soft'
 
 -- ====== srcery ======
-g.srcery_italic = 1
-g.srcery_inverse_matches = 1
+g.srcery_italic = true
+g.srcery_inverse_matches = true
 
 -- ====== OceanicNext ======
-g.oceanic_next_terminal_bold = 1
-g.oceanic_next_terminal_italic = 1
+g.oceanic_next_terminal_bold = true
+g.oceanic_next_terminal_italic = true
 
 -- ====== Ayu ======
 g.ayucolor = 'light'
