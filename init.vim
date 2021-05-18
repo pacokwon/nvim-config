@@ -97,8 +97,8 @@ if has("clipboard")
 endif
 
 " set leader to comma
-let mapleader=','
-let g:mapleader=','
+let mapleader=' '
+let g:mapleader=' '
 
 " semicolon remap
 nnoremap ; :
