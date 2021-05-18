@@ -1,5 +1,3 @@
-let g:polyglot_disabled = ['python-indent']
-
 call plug#begin()
 
 " utility plugins
@@ -23,7 +21,6 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'rust-lang/rust.vim'
-Plug 'sheerun/vim-polyglot'
 Plug 'styled-components/vim-styled-components', { 'branch': 'develop' }
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-commentary'
