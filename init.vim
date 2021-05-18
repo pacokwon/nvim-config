@@ -3,6 +3,7 @@ call plug#begin()
 " utility plugins
 Plug 'bfredl/nvim-miniyank'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'glepnir/galaxyline.nvim', { 'branch': 'main' }
 Plug 'glepnir/lspsaga.nvim'
 Plug 'hrsh7th/nvim-compe'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -21,6 +22,7 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'rust-lang/rust.vim'
+Plug 'steelsojka/pears.nvim'
 Plug 'styled-components/vim-styled-components', { 'branch': 'develop' }
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-commentary'
