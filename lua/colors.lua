@@ -23,7 +23,11 @@ g.oceanic_next_terminal_italic = 1
 -- ====== Ayu ======
 g.ayucolor = 'light'
 
-cmd 'colorscheme srcery'
+-- ====== tokyonight ======
+g.tokyonight_transparent = false
+g.tokyonight_style = 'storm'
+
+cmd 'colorscheme tokyonight'
 
 if g.colors_name == 'srcery' then
     cmd 'highlight! link Pmenu PmenuThumb'
