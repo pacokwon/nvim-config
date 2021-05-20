@@ -36,7 +36,7 @@ local mode_color = function()
   local mode_colors = {
     [110] = colors.green,
     [105] = colors.blue,
-    [99] = colors.green,
+    [99] = colors.yellow,
     [116] = colors.blue,
     [118] = colors.purple,
     [22] = colors.purple,
@@ -63,6 +63,7 @@ gls.left[1] = {
     highlight = { colors.blue, colors.bg }
   },
 }
+
 gls.left[2] = {
   ViMode = {
     provider = function()
@@ -83,7 +84,7 @@ gls.left[2] = {
       local alias = aliases[vim.fn.mode():byte()]
       local mode
       if alias ~= nil then
-        if has_width_gt(35) then
+        if has_width_gt(36) then
           mode = alias
         else
           mode = alias:sub(1, 1)
@@ -96,14 +97,8 @@ gls.left[2] = {
     highlight = { colors.red, colors.bg, 'bold' },
   },
 }
-gls.left[3] = {
-  FileSize = {
-    provider = 'FileSize',
-    condition = buffer_not_empty,
-    highlight = { colors.fg, colors.bg }
-  }
-}
-gls.left[4] ={
+
+gls.left[3] ={
   FileIcon = {
     provider = 'FileIcon',
     condition = buffer_not_empty,
@@ -111,40 +106,31 @@ gls.left[4] ={
   },
 }
 
-gls.left[5] = {
+gls.left[4] = {
   FileName = {
     provider = {'FileName'},
     condition = buffer_not_empty,
-    highlight = { colors.green, colors.bg, 'bold' }
+    highlight = { colors.yellow, colors.bg, 'bold' }
   }
 }
 
-gls.left[6] = {
+gls.left[5] = {
   LineInfo = {
     provider = 'LineColumn',
     separator = ' ',
     separator_highlight = { 'NONE', colors.bg },
-    highlight = { colors.fg, colors.bg },
+    highlight = { colors.yellow, colors.bg },
   },
 }
 
-gls.left[7] = {
-  PerCent = {
-    provider = 'LinePercent',
-    separator = ' ',
-    separator_highlight = { 'NONE', colors.bg },
-    highlight = { colors.fg, colors.bg, 'bold' },
-  }
-}
-
-gls.left[8] = {
+gls.left[6] = {
   DiagnosticError = {
     provider = 'DiagnosticError',
     icon = '  ',
     highlight = { colors.red, colors.bg }
   }
 }
-gls.left[9] = {
+gls.left[7] = {
   DiagnosticWarn = {
     provider = 'DiagnosticWarn',
     icon = '  ',
@@ -152,7 +138,7 @@ gls.left[9] = {
   }
 }
 
-gls.left[10] = {
+gls.left[8] = {
   DiagnosticHint = {
     provider = 'DiagnosticHint',
     icon = '  ',
@@ -160,7 +146,7 @@ gls.left[10] = {
   }
 }
 
-gls.left[11] = {
+gls.left[9] = {
   DiagnosticInfo = {
     provider = 'DiagnosticInfo',
     icon = '  ',
@@ -169,6 +155,35 @@ gls.left[11] = {
 }
 
 gls.right[1] = {
+  DiffAdd = {
+    provider = 'DiffAdd',
+    condition = function() has_width_gt(36) end,
+    icon = '+',
+    highlight = { colors.green, colors.bg, 'bold' },
+    separator = ' ',
+    separator_highlight = { colors.bg, colors.bg },
+  }
+}
+
+gls.right[2] = {
+  DiffModified = {
+    provider = 'DiffModified',
+    condition = function() has_width_gt(36) end,
+    icon = '~',
+    highlight = { colors.orange, colors.bg, 'bold' },
+  }
+}
+
+gls.right[3] = {
+  DiffRemove = {
+    provider = 'DiffRemove',
+    condition = function() has_width_gt(36) end,
+    icon = '-',
+    highlight = { colors.red, colors.bg, 'bold' },
+  }
+}
+
+gls.right[4] = {
   FileEncode = {
     provider = 'FileEncode',
     separator = ' ',
@@ -177,7 +192,7 @@ gls.right[1] = {
   }
 }
 
-gls.right[2] = {
+gls.right[5] = {
   FileFormat = {
     provider = 'FileFormat',
     separator = ' ',
@@ -186,7 +201,7 @@ gls.right[2] = {
   }
 }
 
-gls.right[3] = {
+gls.right[6] = {
   GitIcon = {
     provider = function() return '  ' end,
     condition = require('galaxyline.provider_vcs').check_git_workspace,
@@ -196,46 +211,11 @@ gls.right[3] = {
   }
 }
 
-gls.right[4] = {
+gls.right[7] = {
   GitBranch = {
     provider = 'GitBranch',
     condition = require('galaxyline.provider_vcs').check_git_workspace,
     highlight = { colors.purple, colors.bg, 'bold' },
-  }
-}
-
-local checkwidth = function()
-  local squeeze_width  = vim.fn.winwidth(0) / 2
-  if squeeze_width > 40 then
-    return true
-  end
-  return false
-end
-
-gls.right[5] = {
-  DiffAdd = {
-    provider = 'DiffAdd',
-    condition = checkwidth,
-    icon = '+',
-    highlight = { colors.green, colors.bg, 'bold' },
-    separator = ' ',
-    separator_highlight = { colors.bg, colors.bg },
-  }
-}
-gls.right[6] = {
-  DiffModified = {
-    provider = 'DiffModified',
-    condition = checkwidth,
-    icon = '~',
-    highlight = { colors.orange, colors.bg, 'bold' },
-  }
-}
-gls.right[7] = {
-  DiffRemove = {
-    provider = 'DiffRemove',
-    condition = checkwidth,
-    icon = '-',
-    highlight = { colors.red, colors.bg, 'bold' },
   }
 }
 
