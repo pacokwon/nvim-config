@@ -93,6 +93,7 @@ set formatoptions+=c    " Respect textwidth
 set formatoptions+=r    " Do continue on enter
 
 set splitbelow
+set splitright
 set scrolloff=8
 
 if has("clipboard")
