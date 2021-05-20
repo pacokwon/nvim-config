@@ -21,6 +21,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'ray-x/lsp_signature.nvim'
 Plug 'rust-lang/rust.vim'
 Plug 'steelsojka/pears.nvim'
 Plug 'styled-components/vim-styled-components', { 'branch': 'develop' }
