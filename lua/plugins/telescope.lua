@@ -15,6 +15,9 @@ telescope.setup {
                 ["<C-u>"] = function()
                     vim.api.nvim_set_current_line("")
                 end,
+                ["<C-a>"] = function()
+                    vim.api.nvim_win_set_cursor(0, {1, 0})
+                end,
                 ["<C-d>"] = actions.close,
                 ["<C-k>"] = actions.preview_scrolling_up,
                 ["<C-j>"] = actions.preview_scrolling_down,
