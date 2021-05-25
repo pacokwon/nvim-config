@@ -8,6 +8,7 @@ Plug 'glepnir/lspsaga.nvim'
 Plug 'hrsh7th/nvim-compe'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'kyazdani42/nvim-tree.lua'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'leafOfTree/vim-vue-plugin'
 Plug 'lewis6991/gitsigns.nvim'
@@ -351,3 +352,5 @@ endfunc
 function! StartifyEntryFormat() abort
   return 'v:lua.webDevIcons(absolute_path) . " " . entry_path'
 endfunction
+" ====== nvim-tree ======
+nnoremap <leader>nt :NvimTreeToggle<CR>
