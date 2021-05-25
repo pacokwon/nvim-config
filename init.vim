@@ -287,7 +287,7 @@ inoremap <silent><expr> <C-e> compe#close('<C-e>')
 
 " ====== nvim-telescope ======
 nnoremap <expr> <silent> <leader>ff (len(system('git rev-parse')) ? ':lua require"telescope.builtin".find_files()' : ':lua require"telescope.builtin".git_files()')."\<CR>"
-nnoremap <silent> <leader>ft :lua require'telescope.builtin'.grep_string{ shorten_path = true, word_match = "-w", only_sort_text = true, search = '' }<CR>
+nnoremap <silent> <leader>fs :lua require'telescope.builtin'.grep_string{ shorten_path = true, word_match = "-w", only_sort_text = true, search = '' }<CR>
 nnoremap <leader>fgb :lua require'telescope.builtin'.git_branches()<CR>
 nnoremap <leader>fgs :lua require'telescope.builtin'.git_status()<CR>
 
@@ -311,8 +311,8 @@ if has('nvim') && exists('&winblend') && &termguicolors
     endif
 
     function! FloatingFZF()
-        let width = float2nr(&columns * 0.8)
-        let height = float2nr(&lines * 0.8)
+        let width = float2nr(&columns * 0.9)
+        let height = float2nr(&lines * 0.9)
         let opts = { 'relative': 'editor',
                     \ 'row': (&lines - height) / 2,
                     \ 'col': (&columns - width) / 2,
@@ -332,11 +332,11 @@ command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
   \   <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
-  \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
+  \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '~'),
   \   <bang>0)
 
 " search
-nnoremap <leader>fs :Rg<CR>
+nnoremap <leader>ft :Rg<CR>
 nnoremap <leader>fr :Rg!<CR>
 
 function! SynStack()
