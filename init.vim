@@ -215,8 +215,8 @@ autocmd FileType fsharp setlocal commentstring=//%s
 
 " ====== fugitive ======
 " launch Git status
-nnoremap <leader>gg :vertical Gstatus<CR>
-nnoremap <leader>go :tab Gstatus<CR>
+nnoremap <leader>gg :vertical Git<CR>
+nnoremap <leader>go :tab Git<CR>
 nnoremap <leader>gp :Git push<CR>
 
 " ====== vim-floaterm ======
