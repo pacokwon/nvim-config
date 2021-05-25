@@ -107,6 +107,7 @@ nnoremap : ;
 vnoremap ; :
 vnoremap : ;
 
+" for visual block yanking
 map p <Plug>(miniyank-autoput)
 map P <Plug>(miniyank-autoPut)
 
