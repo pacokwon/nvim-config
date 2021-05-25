@@ -38,13 +38,9 @@ Plug 'voldikss/vim-floaterm'
 
 " colorschemes
 Plug 'arzg/vim-colors-xcode'
-Plug 'ayu-theme/ayu-vim'
-Plug 'dracula/vim'
-Plug 'embark-theme/vim', { 'as': 'embark' }
 Plug 'folke/tokyonight.nvim'
 Plug 'haishanh/night-owl.vim'
 Plug 'pacokwon/panic.vim'
-Plug 'lifepillar/vim-solarized8'
 Plug 'mhartington/oceanic-next'
 Plug 'morhetz/gruvbox'
 Plug 'pacokwon/onedarkpaco.vim'
