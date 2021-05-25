@@ -208,6 +208,7 @@ nnoremap <silent> <leader>tc :ColorToggle<CR>
 " ====== commentary ======
 autocmd FileType jsonc setlocal commentstring=//%s
 autocmd FileType fsharp setlocal commentstring=//%s
+autocmd FileType asm setlocal commentstring=#%s
 
 " ====== fugitive ======
 " launch Git status
