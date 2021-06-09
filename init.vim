@@ -93,6 +93,7 @@ set formatoptions+=r    " Do continue on enter
 set splitbelow
 set splitright
 set scrolloff=8
+set updatetime=500      " == CursorHold delay (default 4000)
 
 if has("clipboard")
     set clipboard=unnamedplus
