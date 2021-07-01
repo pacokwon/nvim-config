@@ -1,4 +1,5 @@
 require'plugins.colorizer'
+require'plugins.dap'
 require'plugins.gitsigns'
 require'plugins.lsp'
 require'plugins.pears'

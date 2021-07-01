@@ -14,6 +14,7 @@ Plug 'leafOfTree/vim-vue-plugin'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'mattn/emmet-vim'
 Plug 'mhinz/vim-startify'
+Plug 'mfussenegger/nvim-dap'
 Plug 'neovim/nvim-lspconfig'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'nvim-lua/popup.nvim'
@@ -351,5 +352,22 @@ endfunc
 function! StartifyEntryFormat() abort
   return 'v:lua.webDevIcons(absolute_path) . " " . entry_path'
 endfunction
+
 " ====== nvim-tree ======
 nnoremap <leader>nt :NvimTreeToggle<CR>
+
+" ====== nvim-dap ======
+nnoremap <silent> <F5> :lua require'dap'.continue()<CR>
+nnoremap <silent> <S-F5> :lua require'dap'.stop()<CR>
+nnoremap <silent> <F6> :lua require'dap'.step_over()<CR>
+nnoremap <silent> <F7> :lua require'dap'.step_into()<CR>
+nnoremap <silent> <F8> :lua require'dap'.step_out()<CR>
+
+" Toggle
+nnoremap <silent> <leader>bt :lua require'dap'.toggle_breakpoint()<CR>
+" Conditional
+nnoremap <silent> <leader>bc :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint Condition: '))<CR>
+" REPL
+nnoremap <silent> <leader>br :lua require'dap'.repl.toggle()()<CR>
+" Last
+nnoremap <silent> <leader>bl :lua require'dap'.run_last()<CR>
