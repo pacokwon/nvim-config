@@ -155,10 +155,6 @@ nnoremap <C-P> gT
 " cursor position after yank
 vnoremap y y`]
 
-" open terminal
-nnoremap <silent> <leader>tv :vsp term://zsh<CR>
-nnoremap <silent> <leader>th :sp term://zsh<CR>
-
 " open vimrc
 nnoremap <leader>ve :vsplit $MYVIMRC<CR>
 nnoremap <leader>vs :source $MYVIMRC<CR>
@@ -223,8 +219,10 @@ nnoremap <leader>gp :Git push<CR>
 let g:floaterm_width = 0.8
 let g:floaterm_height = 0.7
 
-nnoremap <silent> <leader>tn :FloatermNew<CR>
-tnoremap <silent> <leader>tn <C-\><C-n>:FloatermNew<CR>
+" open terminal
+nnoremap <silent> <leader>tv :vsp term://zsh<CR>
+nnoremap <silent> <leader>th :sp term://zsh<CR>
+nnoremap <silent> <leader>tn :tabe term://zsh<CR>
 nnoremap <silent> <leader>tt :FloatermToggle<CR>
 tnoremap <silent> <leader>tt <C-\><C-n>:FloatermToggle<CR>
 
