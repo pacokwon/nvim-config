@@ -26,6 +26,7 @@ Plug 'nvim-treesitter/playground'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'rust-lang/rust.vim'
+Plug 'scalameta/nvim-metals'
 Plug 'steelsojka/pears.nvim'
 Plug 'styled-components/vim-styled-components', { 'branch': 'develop' }
 Plug 'tommcdo/vim-exchange'

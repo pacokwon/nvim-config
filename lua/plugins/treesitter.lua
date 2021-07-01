@@ -18,6 +18,7 @@ require'nvim-treesitter.configs'.setup {
     'python',
     'query',
     'rust',
+    'scala',
     'swift',
     'tsx',
     'typescript',
