@@ -1,8 +1,6 @@
 local lspconfig = require('lspconfig')
 local saga = require('lspsaga')
 
--- path to fsautocomplete dll. MUST contain trailing slash
-local fsautocomplete_path = '/usr/local/share/fsautocomplete.netcore/'
 
 saga.init_lsp_saga {
     code_action_prompt = {
@@ -32,10 +30,7 @@ lspconfig.tsserver.setup {
 }
 lspconfig.clangd.setup { on_attach = custom_attach }
 lspconfig.rust_analyzer.setup { on_attach = custom_attach }
-lspconfig.fsautocomplete.setup {
-    on_attach = custom_attach,
-    cmd = { 'dotnet', fsautocomplete_path .. 'fsautocomplete.dll', '--background-service-enabled' },
-}
+lspconfig.fsautocomplete.setup { on_attach = custom_attach }
 lspconfig.vuels.setup { on_attach = custom_attach }
 lspconfig.pyls.setup { on_attach = custom_attach }
 lspconfig.ocamllsp.setup { on_attach = custom_attach }
