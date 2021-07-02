@@ -16,6 +16,7 @@ Plug 'mattn/emmet-vim'
 Plug 'mhinz/vim-startify'
 Plug 'mfussenegger/nvim-dap'
 Plug 'neovim/nvim-lspconfig'
+Plug 'neovimhaskell/haskell-vim'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -372,3 +373,11 @@ nnoremap <silent> <leader>bc :lua require'dap'.set_breakpoint(vim.fn.input('Brea
 nnoremap <silent> <leader>br :lua require'dap'.repl.toggle()()<CR>
 " Last
 nnoremap <silent> <leader>bl :lua require'dap'.run_last()<CR>
+
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords

@@ -33,6 +33,7 @@ lspconfig.rust_analyzer.setup { on_attach = custom_attach }
 lspconfig.fsautocomplete.setup { on_attach = custom_attach }
 lspconfig.vuels.setup { on_attach = custom_attach }
 lspconfig.pyls.setup { on_attach = custom_attach }
+lspconfig.hls.setup { on_attach = custom_attach }
 lspconfig.ocamllsp.setup { on_attach = custom_attach }
 lspconfig.diagnosticls.setup {
     on_attach = custom_attach,
