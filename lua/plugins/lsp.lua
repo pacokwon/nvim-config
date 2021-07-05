@@ -1,5 +1,6 @@
-local lspconfig = require('lspconfig')
-local saga = require('lspsaga')
+local lspconfig = require 'lspconfig'
+local util = require 'lspconfig/util'
+local saga = require 'lspsaga'
 
 
 saga.init_lsp_saga {
@@ -33,7 +34,10 @@ lspconfig.rust_analyzer.setup { on_attach = custom_attach }
 lspconfig.fsautocomplete.setup { on_attach = custom_attach }
 lspconfig.vuels.setup { on_attach = custom_attach }
 lspconfig.pyls.setup { on_attach = custom_attach }
-lspconfig.hls.setup { on_attach = custom_attach }
+lspconfig.hls.setup {
+    on_attach = custom_attach,
+    root_dir = util.root_pattern("*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml", "*.hs")
+}
 lspconfig.ocamllsp.setup { on_attach = custom_attach }
 lspconfig.diagnosticls.setup {
     on_attach = custom_attach,
