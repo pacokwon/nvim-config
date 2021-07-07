@@ -268,8 +268,11 @@ nnoremap <silent>gi :lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent>ge :lua vim.lsp.buf.references()<CR>
 nnoremap <silent>ga :lua vim.lsp.buf.code_action()<CR>
 nnoremap <silent>go :lua vim.lsp.diagnostic.set_loclist()<CR>
-nnoremap <silent>gr :lua vim.lsp.buf.rename()<CR>
+nnoremap <silent>gr :Lspsaga rename<CR>
 nnoremap <silent>gf :lua vim.lsp.buf.formatting()<CR>
+
+nnoremap <silent><C-f> :lua require'lspsaga.action'.smart_scroll_with_saga(1)<CR>
+nnoremap <silent><C-b> :lua require'lspsaga.action'.smart_scroll_with_saga(-1)<CR>
 
 " Hint Related Highlight Groups. Underline must be linked manually. see :h hl-LspDiagnosticsUnderlineHint
 hi LspDiagnosticsDefaultHint guifg=#FF8E24 gui=undercurl
@@ -295,6 +298,7 @@ inoremap <silent><expr> <C-e> compe#close('<C-e>')
 " ====== nvim-telescope ======
 nnoremap <expr> <silent> <leader>ff (len(system('git rev-parse')) ? ':lua require"telescope.builtin".find_files()' : ':lua require"telescope.builtin".git_files()')."\<CR>"
 nnoremap <silent> <leader>fs :lua require'telescope.builtin'.grep_string{ shorten_path = true, word_match = "-w", only_sort_text = true, search = '' }<CR>
+nnoremap <silent> <leader>fe :Telescope file_browser<CR>
 nnoremap <leader>fgb :lua require'telescope.builtin'.git_branches()<CR>
 nnoremap <leader>fgs :lua require'telescope.builtin'.git_status()<CR>
 
