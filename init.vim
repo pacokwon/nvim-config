@@ -247,7 +247,7 @@ let g:vim_vue_plugin_load_full_syntax = 1
 let g:vimwiki_list = [
     \{'path': '~/vimwiki', 'syntax': 'markdown', 'ext': '.md'}
 \]
-let g:vimwiki_conceallevel = 1
+let g:vimwiki_conceallevel = 0
 nnoremap <leader>wf :Files ~/vimwiki<CR>
 nmap <C-h> <Plug>VimwikiDiaryPrevDay
 nmap <C-l> <Plug>VimwikiDiaryNextDay
