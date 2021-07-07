@@ -27,6 +27,12 @@ g.ayucolor = 'light'
 g.tokyonight_transparent = false
 g.tokyonight_style = 'storm'
 
+-- ====== onedark ======
+g.onedark_style = 'dark'
+
+-- ====== onedark ======
+g.ayu_mirage = true
+
 cmd 'colorscheme tokyonight'
 
 if g.colors_name == 'srcery' then
