@@ -95,6 +95,7 @@ set formatoptions-=a    " No autoformatting
 set formatoptions+=c    " Respect textwidth
 set formatoptions+=r    " Do continue on enter
 
+set nowrap
 set splitbelow
 set splitright
 set scrolloff=8
