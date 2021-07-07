@@ -223,6 +223,7 @@ nnoremap <leader>go :tab Git<CR>
 nnoremap <leader>gp :Git push<CR>
 
 " open terminal
+nnoremap <silent> <leader>tv :vsp term://zsh<CR>
 nnoremap <silent> <leader>tn :tabe term://zsh<CR>
 
 " ====== emmet-vim ======

@@ -2,7 +2,7 @@ local toggleterm = require 'toggleterm'
 
 toggleterm.setup {
     size = 20,
-    open_mapping = [[ th]],
+    open_mapping = [[<c-t>]],
     hide_numbers = true,
     shade_terminals = true,
     start_in_insert = true,
