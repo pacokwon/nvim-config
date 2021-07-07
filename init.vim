@@ -1,6 +1,7 @@
 call plug#begin()
 
 " utility plugins
+Plug 'akinsho/nvim-toggleterm.lua'
 Plug 'bfredl/nvim-miniyank'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'glepnir/galaxyline.nvim', { 'branch': 'main' }
@@ -38,7 +39,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vifm/vifm.vim'
 Plug 'vimwiki/vimwiki'
-Plug 'voldikss/vim-floaterm'
 
 " colorschemes
 Plug 'arzg/vim-colors-xcode'
@@ -78,6 +78,7 @@ set list
 set listchars=eol:¬,tab:⍿·,space:·,trail:␠,nbsp:⎵
 set foldmethod=manual
 set lazyredraw " improves macro speed
+set hidden
 
 " search related stuff
 set nohlsearch
@@ -221,16 +222,8 @@ nnoremap <leader>gg :vertical Git<CR>
 nnoremap <leader>go :tab Git<CR>
 nnoremap <leader>gp :Git push<CR>
 
-" ====== vim-floaterm ======
-let g:floaterm_width = 0.8
-let g:floaterm_height = 0.7
-
 " open terminal
-nnoremap <silent> <leader>tv :vsp term://zsh<CR>
-nnoremap <silent> <leader>th :sp term://zsh<CR>
 nnoremap <silent> <leader>tn :tabe term://zsh<CR>
-nnoremap <silent> <leader>tt :FloatermToggle<CR>
-tnoremap <silent> <leader>tt <C-\><C-n>:FloatermToggle<CR>
 
 " ====== emmet-vim ======
 let g:user_emmet_mode='i'
