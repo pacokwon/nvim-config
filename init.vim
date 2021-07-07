@@ -253,17 +253,18 @@ let g:vifm_replace_netrw    = 1
 nnoremap <silent> <leader>vi :Vifm<CR>
 
 " ====== diagnostic nvim ======
-nnoremap <silent>K  :Lspsaga hover_doc<CR>
-nnoremap <silent>gl :Lspsaga show_line_diagnostics<CR>
-nnoremap <silent>gn :Lspsaga diagnostic_jump_next<CR>
-nnoremap <silent>gp :Lspsaga diagnostic_jump_prev<CR>
-nnoremap <silent>gd :lua vim.lsp.buf.definition()<CR>
-nnoremap <silent>gi :lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent>ge :lua vim.lsp.buf.references()<CR>
-nnoremap <silent>ga :lua vim.lsp.buf.code_action()<CR>
-nnoremap <silent>go :lua vim.lsp.diagnostic.set_loclist()<CR>
+nnoremap <silent>K   :Lspsaga hover_doc<CR>
+nnoremap <silent>gl  :Lspsaga show_line_diagnostics<CR>
+nnoremap <silent>gn  :Lspsaga diagnostic_jump_next<CR>
+nnoremap <silent>gp  :Lspsaga diagnostic_jump_prev<CR>
+nnoremap <silent>gd  :lua vim.lsp.buf.definition()<CR>
+nnoremap <silent>gi  :lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent>ge  :lua vim.lsp.buf.references()<CR>
+nnoremap <silent>ga  :lua vim.lsp.buf.code_action()<CR>
+nnoremap <silent>go  :lua vim.lsp.diagnostic.set_loclist()<CR>
 nnoremap <silent>gr :Lspsaga rename<CR>
-nnoremap <silent>gf :lua vim.lsp.buf.formatting()<CR>
+nnoremap <silent>gff :lua vim.lsp.buf.formatting()<CR>
+nnoremap <silent>gfe :lua require'telescope.builtin'.lsp_references()<CR>
 
 nnoremap <silent><C-f> :lua require'lspsaga.action'.smart_scroll_with_saga(1)<CR>
 nnoremap <silent><C-b> :lua require'lspsaga.action'.smart_scroll_with_saga(-1)<CR>
