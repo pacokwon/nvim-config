@@ -260,9 +260,9 @@ nnoremap <silent>gp  :Lspsaga diagnostic_jump_prev<CR>
 nnoremap <silent>gd  :lua vim.lsp.buf.definition()<CR>
 nnoremap <silent>gi  :lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent>ge  :lua vim.lsp.buf.references()<CR>
-nnoremap <silent>ga  :lua vim.lsp.buf.code_action()<CR>
+nnoremap <silent>ga  :Lspsaga code_action<CR>
 nnoremap <silent>go  :lua vim.lsp.diagnostic.set_loclist()<CR>
-nnoremap <silent>gr :Lspsaga rename<CR>
+nnoremap <silent>gr  :Lspsaga rename<CR>
 nnoremap <silent>gff :lua vim.lsp.buf.formatting()<CR>
 nnoremap <silent>gfe :lua require'telescope.builtin'.lsp_references()<CR>
 
