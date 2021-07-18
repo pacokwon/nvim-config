@@ -52,6 +52,10 @@ lspconfig.hls.setup {
     root_dir = util.root_pattern("*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml", "*.hs")
 }
 lspconfig.ocamllsp.setup { on_attach = custom_attach }
+lspconfig.texlab.setup {
+    filetypes = { "tex", "bib", "plaintex" },
+    on_attach = custom_attach
+}
 lspconfig.diagnosticls.setup {
     on_attach = custom_attach,
     filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'typescript.tsx', 'vue' },
@@ -101,6 +105,12 @@ lspconfig.diagnosticls.setup {
         }
     }
 }
+lspconfig.sourcekit.setup {
+    filetypes = { "swift" },
+    on_attach = custom_attach
+}
+lspconfig.bashls.setup{}
+
 
 require'compe'.setup {
     enabled = true;
