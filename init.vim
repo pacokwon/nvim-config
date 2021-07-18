@@ -253,7 +253,7 @@ let g:vifm_replace_netrw    = 1
 nnoremap <silent> <leader>vi :Vifm<CR>
 
 " ====== diagnostic nvim ======
-nnoremap <silent>K   :Lspsaga hover_doc<CR>
+nnoremap <silent>K   :lua vim.lsp.buf.hover()<CR>
 nnoremap <silent>gl  :Lspsaga show_line_diagnostics<CR>
 nnoremap <silent>gn  :Lspsaga diagnostic_jump_next<CR>
 nnoremap <silent>gp  :Lspsaga diagnostic_jump_prev<CR>
