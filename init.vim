@@ -159,6 +159,7 @@ vnoremap <C-K> 10k
 nnoremap <C-N> gt
 nnoremap <C-P> gT
 
+nnoremap <S-y> y$
 " cursor position after yank
 vnoremap y y`]
 
