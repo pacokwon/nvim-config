@@ -79,6 +79,7 @@ set listchars=eol:¬,tab:⍿·,space:·,trail:␠,nbsp:⎵
 set foldmethod=manual
 set lazyredraw " improves macro speed
 set hidden
+set completeopt=menuone,noselect
 
 " search related stuff
 set nohlsearch
@@ -281,8 +282,6 @@ hi! link LspDiagnosticsUnderlineWarning LspDiagnosticsDefaultWarning
 " Error Related Highlight Groups
 hi LspDiagnosticsDefaultError guifg=#F74848 gui=undercurl
 hi! link LspDiagnosticsUnderlineError LspDiagnosticsDefaultError
-
-set completeopt=menu,menuone,noselect
 
 let g:vim_vue_plugin_use_typescript = 1
 let g:vim_vue_plugin_use_scss = 1
