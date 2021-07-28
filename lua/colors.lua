@@ -35,10 +35,6 @@ g.ayu_mirage = true
 
 cmd 'colorscheme tokyonight'
 
-if g.colors_name == 'srcery' then
-    cmd 'highlight! link Pmenu PmenuThumb'
-end
-
 if g.visual_inverse == 1 then
     cmd 'highlight! Visual gui=reverse'
 end
