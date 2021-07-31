@@ -2,7 +2,7 @@
 local cmd = vim.cmd
 local g = vim.g
 
-g.visual_inverse = 1
+g.visual_inverse = true
 
 -- ====== vim-solarized8 ======
 g.solarized_visibility = 'high'
@@ -35,6 +35,6 @@ g.ayu_mirage = true
 
 cmd 'colorscheme tokyonight'
 
-if g.visual_inverse == 1 then
+if g.visual_inverse then
     cmd 'highlight! Visual gui=reverse'
 end
