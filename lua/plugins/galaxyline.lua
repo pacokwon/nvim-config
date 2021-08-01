@@ -3,11 +3,9 @@ local gls = gl.section
 gl.short_line_list = {'NvimTree','vista','dbui'}
 
 local normal_bg = vim.fn.synIDattr(vim.api.nvim_get_hl_id_by_name ("Normal"), "bg")
--- print(normal_bg)
 
 local colors = {
-  -- bg = '#282c34',
-  bg = '#222638',
+  bg = normal_bg,
   fg = '#abb2bf',
   section_bg = '#38393f',
   blue = '#61afef',
