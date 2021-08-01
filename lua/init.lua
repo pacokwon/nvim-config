@@ -1,3 +1,5 @@
 require'plugins.packer'
 require'colors'
+require'opts'
+require'mappings'
 require'plugins'
