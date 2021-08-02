@@ -35,7 +35,7 @@ lspconfig.clangd.setup { on_attach = custom_attach }
 lspconfig.rust_analyzer.setup { on_attach = custom_attach }
 lspconfig.fsautocomplete.setup { on_attach = custom_attach }
 lspconfig.vuels.setup { on_attach = custom_attach }
-lspconfig.pyls.setup { on_attach = custom_attach }
+lspconfig.pylsp.setup { on_attach = custom_attach }
 lspconfig.hls.setup {
     on_attach = custom_attach,
     root_dir = util.root_pattern("*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml", "*.hs")
