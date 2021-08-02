@@ -19,6 +19,7 @@ require'nvim-treesitter.configs'.setup {
     'scala',
     'swift',
     'tsx',
+    'toml',
     'typescript',
   },
   playground = {
