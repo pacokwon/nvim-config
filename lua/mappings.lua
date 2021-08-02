@@ -66,3 +66,7 @@ map('v', 'y', 'y`]')
 -- open vimrc
 map('n', '<leader>ve', ':vsplit $MYVIMRC<CR>')
 map('n', '<leader>vs', ':source $MYVIMRC<CR>')
+
+map('n', '<leader>pbb', ':let @+ = expand("%")<CR>')
+map('n', '<leader>pbt', ':let @+ = expand("%:t")<CR>')
+map('n', '<leader>pbp', ':let @+ = expand("%:p")<CR>')
