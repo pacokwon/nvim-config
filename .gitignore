@@ -46,4 +46,4 @@ tags
 # Persistent undo
 [._]*.un~
 
-plugged
+packer_compiled.lua
