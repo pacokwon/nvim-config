@@ -13,6 +13,7 @@ return require'packer'.startup(function()
     use 'kyazdani42/nvim-web-devicons'
     use 'leafOfTree/vim-vue-plugin'
     use 'lewis6991/gitsigns.nvim'
+    -- use 'ludovicchabant/vim-gutentags'
     use 'mattn/emmet-vim'
     use 'mhinz/vim-startify'
     use 'mfussenegger/nvim-dap'
