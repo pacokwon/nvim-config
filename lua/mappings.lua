@@ -10,12 +10,6 @@ end
 -- set leader to space
 g.mapleader = ' '
 
--- semicolon remap
-map('n', ';', ':')
-map('n', ':', ';')
-map('v', ';', ':')
-map('v', ':', ';')
-
 -- for visual block yanking
 api.nvim_set_keymap('', 'p', '<Plug>(miniyank-autoput)', {})
 api.nvim_set_keymap('', 'P', '<Plug>(miniyank-autoPut)', {})
