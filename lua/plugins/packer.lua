@@ -11,6 +11,7 @@ return require'packer'.startup(function()
     use 'junegunn/fzf.vim'
     use 'kyazdani42/nvim-tree.lua'
     use 'kyazdani42/nvim-web-devicons'
+    use 'lbrayner/vim-rzip'
     use 'leafOfTree/vim-vue-plugin'
     use 'lewis6991/gitsigns.nvim'
     -- use 'ludovicchabant/vim-gutentags'
