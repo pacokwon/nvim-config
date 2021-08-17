@@ -16,7 +16,6 @@ return require'packer'.startup(function()
     use 'lewis6991/gitsigns.nvim'
     -- use 'ludovicchabant/vim-gutentags'
     use 'mattn/emmet-vim'
-    use 'mhinz/vim-startify'
     use 'mfussenegger/nvim-dap'
     use 'neovim/nvim-lspconfig'
     use 'neovimhaskell/haskell-vim'
@@ -54,4 +53,7 @@ return require'packer'.startup(function()
     use 'Shatur95/neovim-ayu'
     use 'savq/melange'
     use 'srcery-colors/srcery-vim'
+
+    use 'glepnir/dashboard-nvim'
+
 end)

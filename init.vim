@@ -189,11 +189,6 @@ function! SynStack()
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
-" ====== vim-startify ======
-function! StartifyEntryFormat() abort
-  return 'v:lua.webDevIcons(absolute_path) . " " . entry_path'
-endfunction
-
 " ====== nvim-tree ======
 nnoremap <leader>nt :NvimTreeToggle<CR>
 
@@ -265,3 +260,22 @@ function! RzipOverride()
 endfunction
 
 autocmd VimEnter * call RzipOverride()
+
+let g:dashboard_default_executive = 'fzf'
+let g:dashboard_custom_shortcut={
+\ 'last_session'       : '',
+\ 'find_history'       : '',
+\ 'find_file'          : '',
+\ 'new_file'           : '',
+\ 'change_colorscheme' : '',
+\ 'find_word'          : '',
+\ 'book_marks'         : '',
+\ }
+let g:dashboard_custom_header = [
+\ ' ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',
+\ ' ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║',
+\ ' ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║',
+\ ' ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║',
+\ ' ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║',
+\ ' ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',
+\]
