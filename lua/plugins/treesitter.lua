@@ -7,6 +7,7 @@ require'nvim-treesitter.configs'.setup {
     'css',
     'dockerfile',
     'html',
+    'java',
     'javascript',
     'jsdoc',
     'json',
