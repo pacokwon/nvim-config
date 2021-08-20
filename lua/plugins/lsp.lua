@@ -13,11 +13,11 @@ saga.init_lsp_saga {
 
 local custom_attach = function(client)
     print("'" .. client.name .."' language server started");
-    vim.lsp.handlers["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, { border = 'single' })
-    vim.lsp.handlers["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.hover, { border = 'single' })
+    vim.lsp.handlers['textDocument/hover'] =  vim.lsp.with(vim.lsp.handlers.hover, { border = 'single' })
+    vim.lsp.handlers['textDocument/signatureHelp'] =  vim.lsp.with(vim.lsp.handlers.hover, { border = 'single' })
 end
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
         underline = true,
         virtual_text = false,
@@ -38,11 +38,11 @@ lspconfig.vuels.setup { on_attach = custom_attach }
 lspconfig.pylsp.setup { on_attach = custom_attach }
 lspconfig.hls.setup {
     on_attach = custom_attach,
-    root_dir = util.root_pattern("*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml", "*.hs")
+    root_dir = util.root_pattern('*.cabal', 'stack.yaml', 'cabal.project', 'package.yaml', 'hie.yaml', '*.hs')
 }
 lspconfig.ocamllsp.setup { on_attach = custom_attach }
 lspconfig.texlab.setup {
-    filetypes = { "tex", "bib", "plaintex" },
+    filetypes = { 'tex', 'bib', 'plaintex' },
     on_attach = custom_attach
 }
 lspconfig.diagnosticls.setup {
@@ -51,21 +51,21 @@ lspconfig.diagnosticls.setup {
     init_options = {
         linters = {
             eslint = {
-                command = "./node_modules/.bin/eslint",
-                rootPatterns = {".git", ".eslintrc.cjs", ".eslintrc", ".eslintrc.json", ".eslintrc.js"},
+                command = './node_modules/.bin/eslint',
+                rootPatterns = {'.git', '.eslintrc.cjs', '.eslintrc', '.eslintrc.json', '.eslintrc.js'},
                 debounce = 100,
-                args = {"--stdin", "--stdin-filename", "%filepath", "--format", "json"},
-                sourceName = "eslint",
+                args = {'--stdin', '--stdin-filename', '%filepath', '--format', 'json'},
+                sourceName = 'eslint',
                 parseJson = {
-                    errorsRoot = "[0].messages",
-                    line = "line",
-                    column = "column",
-                    endLine = "endLine",
-                    endColumn = "endColumn",
-                    message = "[eslint] ${message} [${ruleId}]",
-                    security = "severity",
+                    errorsRoot = '[0].messages',
+                    line = 'line',
+                    column = 'column',
+                    endLine = 'endLine',
+                    endColumn = 'endColumn',
+                    message = '[eslint] ${message} [${ruleId}]',
+                    security = 'severity',
                 },
-                securities = {[2] = "error", [1] = "warning"},
+                securities = {[2] = 'error', [1] = 'warning'},
             }
         },
         filetypes = {
@@ -73,7 +73,7 @@ lspconfig.diagnosticls.setup {
             javascriptreact = 'eslint',
             typescript = 'eslint',
             typescriptreact = 'eslint',
-            ["typescript.tsx"] = 'eslint',
+            ['typescript.tsx'] = 'eslint',
             vue = 'eslint',
         },
         formatters = {
@@ -89,13 +89,13 @@ lspconfig.diagnosticls.setup {
            javascriptreact = 'prettier',
            typescript = 'prettier',
            typescriptreact = 'prettier',
-           ["typescript.tsx"] = 'prettier',
+           ['typescript.tsx'] = 'prettier',
            vue = 'prettier',
         }
     }
 }
 lspconfig.sourcekit.setup {
-    filetypes = { "swift" },
+    filetypes = { 'swift' },
     on_attach = custom_attach
 }
 lspconfig.bashls.setup{}
