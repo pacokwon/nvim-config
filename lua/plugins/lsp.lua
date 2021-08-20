@@ -81,7 +81,7 @@ lspconfig.diagnosticls.setup {
                 command = './node_modules/.bin/prettier',
                 rootPatterns = { '.prettierrc', '.git' },
                 args = { '--stdin-filepath', '%filename' },
-                requiredFiles = { ".prettierrc" },
+                requiredFiles = { '.prettierrc', '.prettierrc.json' },
             }
         },
         formatFiletypes = {
