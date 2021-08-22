@@ -64,3 +64,6 @@ map('n', '<leader>vs', ':source $MYVIMRC<CR>')
 map('n', '<leader>pbb', ':let @+ = expand("%")<CR>')
 map('n', '<leader>pbt', ':let @+ = expand("%:t")<CR>')
 map('n', '<leader>pbp', ':let @+ = expand("%:p")<CR>')
+
+map('n', '<leader>pl', ':lua require"plink".ncopy()<CR>')
+map('v', '<leader>pl', ':lua require"plink".vcopy()<CR>')

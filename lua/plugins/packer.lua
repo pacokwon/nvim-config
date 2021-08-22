@@ -26,6 +26,7 @@ return require'packer'.startup(function()
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use {'nvim-treesitter/playground', requires = 'nvim-treesitter/nvim-treesitter'}
+    use 'pacokwon/plink.nvim'
     use 'peitalin/vim-jsx-typescript'
     use 'ray-x/lsp_signature.nvim'
     use 'rust-lang/rust.vim'
