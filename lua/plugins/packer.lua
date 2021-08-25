@@ -48,7 +48,7 @@ return require'packer'.startup(function()
     use 'mhartington/oceanic-next'
     use 'morhetz/gruvbox'
     use 'navarasu/onedark.nvim'
-    use 'pacokwon/onedarkpaco.vim'
+    use 'pacokwon/onedarkhc.vim'
     use 'pacokwon/panic.vim'
     use 'projekt0n/github-nvim-theme'
     use 'Shatur95/neovim-ayu'
