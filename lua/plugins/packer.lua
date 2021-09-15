@@ -4,6 +4,24 @@ return require'packer'.startup(function()
     use 'akinsho/nvim-toggleterm.lua'
     use 'bfredl/nvim-miniyank'
     use 'editorconfig/editorconfig-vim'
+    use {
+        'folke/zen-mode.nvim',
+        config = function()
+            require('zen-mode').setup {
+                window = {
+                    backdrop = 1,
+                    width = 100,
+                    options = {
+                        signcolumn = 'no',
+                        number = false,
+                        relativenumber = false,
+                        list = false,
+                    },
+                },
+            }
+        end
+    }
+    use 'glepnir/dashboard-nvim'
     use {'glepnir/galaxyline.nvim', branch = 'main', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
     use 'glepnir/lspsaga.nvim'
     use 'hrsh7th/nvim-compe'
@@ -54,7 +72,4 @@ return require'packer'.startup(function()
     use 'Shatur95/neovim-ayu'
     use 'savq/melange'
     use 'srcery-colors/srcery-vim'
-
-    use 'glepnir/dashboard-nvim'
-
 end)
