@@ -13,7 +13,7 @@ opt.autoindent = true
 opt.backspace = { 'indent', 'eol', 'start' }
 opt.wildmenu = true
 opt.list = true
-opt.listchars = { eol = '¬', tab = '⍿·', space = '·', trail = '␠', nbsp = '⎵' }
+opt.listchars = { eol = '¬', tab = '⍿ ', space = ' ', trail = '␠', nbsp = '⎵' }
 opt.foldmethod = 'manual'
 opt.lazyredraw = true -- improves macro speed
 opt.hidden = true
