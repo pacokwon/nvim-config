@@ -36,5 +36,5 @@ g.ayu_mirage = true
 cmd 'colorscheme tokyonight'
 
 if g.visual_inverse then
-    cmd 'highlight! Visual gui=reverse'
+    cmd 'highlight! Visual guifg=NONE guibg=NONE gui=reverse'
 end
