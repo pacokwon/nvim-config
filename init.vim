@@ -20,7 +20,7 @@ autocmd BufRead,BufNewFile *.fsx nnoremap <silent> <buffer> <F9> :vsplit \| term
 
 " tsconfig.json is actually jsonc, help TypeScript set the correct filetype
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
-autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us | set complete+=kspell
+autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us | set wrap complete+=kspell
 autocmd BufWinEnter,BufNewFile * setlocal formatoptions-=o
 autocmd BufNewFile,BufRead *.fs,*.fsx,*.fsi set filetype=fsharp
 
