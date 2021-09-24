@@ -60,16 +60,18 @@ return require'packer'.startup(function()
     use 'vifm/vifm.vim'
     use 'vimwiki/vimwiki'
 
+    -- colors
+    use 'Shatur95/neovim-ayu'
     use 'arzg/vim-colors-xcode'
     use 'folke/tokyonight.nvim'
     use 'haishanh/night-owl.vim'
+    use 'ishan9299/modus-theme-vim'
     use 'mhartington/oceanic-next'
     use 'morhetz/gruvbox'
     use 'navarasu/onedark.nvim'
     use 'pacokwon/onedarkhc.vim'
     use 'pacokwon/panic.vim'
     use 'projekt0n/github-nvim-theme'
-    use 'Shatur95/neovim-ayu'
     use 'savq/melange'
     use 'srcery-colors/srcery-vim'
 end)
