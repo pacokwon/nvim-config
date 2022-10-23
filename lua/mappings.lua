@@ -22,6 +22,8 @@ map('i', '<S-Up>', '<Esc>:m .-2<CR>==gi')
 map('v', '<S-Down>', ":m '>+1<CR>gv=gv")
 map('v', '<S-Up>', ":m '<-2<CR>gv=gv")
 
+map('n', '<leader>o', 'o<ESC>k')
+
 -- delete and not cut
 map('n', 'x', '"_x')
 map('n', 'd', '"_d')
@@ -50,8 +52,8 @@ map('v', '<C-J>', '10j')
 map('v', '<C-K>', '10k')
 
 -- keybinding for tab navigation
-map('n', '<C-N>', 'gt')
-map('n', '<C-P>', 'gT')
+map('n', '<C-N>', ':bnext<CR>', { silent = true })
+map('n', '<C-P>', ':bprevious<CR>', { silent = true })
 
 map('n', '<S-y>', 'y$')
 -- cursor position after yank
@@ -64,6 +66,3 @@ map('n', '<leader>vs', ':source $MYVIMRC<CR>')
 map('n', '<leader>pbb', ':let @+ = expand("%")<CR>')
 map('n', '<leader>pbt', ':let @+ = expand("%:t")<CR>')
 map('n', '<leader>pbp', ':let @+ = expand("%:p")<CR>')
-
-map('n', '<leader>pl', ':lua require"plink".ncopy()<CR>')
-map('v', '<leader>pl', ':lua require"plink".vcopy()<CR>')

@@ -13,9 +13,6 @@ require'gitsigns'.setup {
         ['n <leader>hb'] = '<cmd>lua require"gitsigns".blame_line()<CR>',
         ['n <leader>hp'] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
     },
-    watch_index = {
-        interval = 1000
-    },
     current_line_blame = true,
     sign_priority = 6,
     update_debounce = 100,

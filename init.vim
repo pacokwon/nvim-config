@@ -93,17 +93,21 @@ nnoremap <silent> <leader>vi :Vifm<CR>
 
 " ====== diagnostic nvim ======
 nnoremap <silent>K   :lua vim.lsp.buf.hover()<CR>
-nnoremap <silent>gl  :Lspsaga show_line_diagnostics<CR>
-nnoremap <silent>gn  :Lspsaga diagnostic_jump_next<CR>
-nnoremap <silent>gp  :Lspsaga diagnostic_jump_prev<CR>
+nnoremap <silent>gl  :lua vim.diagnostic.open_float({ border = "rounded" })<CR>
+nnoremap <silent>gn  :lua vim.diagnostic.goto_next({ float= { border = "rounded" } })<CR>
+nnoremap <silent>gp  :lua vim.diagnostic.goto_prev({ float= { border = "rounded" } })<CR>
 nnoremap <silent>gd  :lua vim.lsp.buf.definition()<CR>
 nnoremap <silent>gi  :lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent>ge  :lua vim.lsp.buf.references()<CR>
 nnoremap <silent>ga  :Lspsaga code_action<CR>
+nnoremap <silent>gr  :lua vim.lsp.buf.rename()<CR>
 nnoremap <silent>go  :lua vim.lsp.diagnostic.set_loclist()<CR>
-nnoremap <silent>gr  :Lspsaga rename<CR>
-nnoremap <silent>gff :lua vim.lsp.buf.formatting()<CR>
+nnoremap <silent>gff :lua vim.lsp.buf.format { async = true }<CR>
+xnoremap <silent>gff :lua vim.lsp.buf.format { async = true }<CR>
+
 nnoremap <silent>gfe :lua require'telescope.builtin'.lsp_references()<CR>
+nnoremap <silent>gfb :lua require'telescope'.extensions.file_browser.file_browser()<CR>
+nnoremap <silent>fb  :Telescope buffers<CR>
 
 nnoremap <silent><C-f> :lua require'lspsaga.action'.smart_scroll_with_saga(1)<CR>
 nnoremap <silent><C-b> :lua require'lspsaga.action'.smart_scroll_with_saga(-1)<CR>
@@ -120,19 +124,20 @@ hi! link LspDiagnosticsUnderlineWarning LspDiagnosticsDefaultWarning
 hi LspDiagnosticsDefaultError guifg=#F74848 gui=undercurl
 hi! link LspDiagnosticsUnderlineError LspDiagnosticsDefaultError
 
+hi! link TelescopeSelection LspsagaFinderSelection
+
 let g:vim_vue_plugin_use_typescript = 1
 let g:vim_vue_plugin_use_scss = 1
 
-" ====== nvim-compe ======
-inoremap <silent><expr> <C-f> compe#complete()
-inoremap <silent><expr> <C-e> compe#close('<C-e>')
-
 " ====== nvim-telescope ======
-nnoremap <expr> <silent> <leader>ff (len(system('git rev-parse')) ? ':lua require"telescope.builtin".find_files()' : ':lua require"telescope.builtin".git_files()')."\<CR>"
+nnoremap <expr> <silent> <leader>ff (len(system('git rev-parse')) ? ':lua require"telescope.builtin".find_files()' : ':lua require"telescope.builtin".git_files({ show_untracked = true })')."\<CR>"
 nnoremap <silent> <leader>fs :Telescope live_grep<CR>
-nnoremap <silent> <leader>fe :Telescope file_browser<CR>
 nnoremap <leader>fgb :lua require'telescope.builtin'.git_branches()<CR>
 nnoremap <leader>fgs :lua require'telescope.builtin'.git_status()<CR>
+
+" ====== formatter.nvim ======
+nnoremap <silent> <leader>fw :Format<CR>
+nnoremap <silent> <leader>fW :FormatWrite<CR>
 
 " ====== fzf & fzf.vim ======
 " Terminal buffer options for fzf
@@ -189,9 +194,6 @@ function! SynStack()
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
-" ====== nvim-tree ======
-nnoremap <leader>nt :NvimTreeToggle<CR>
-
 " ====== nvim-dap ======
 nnoremap <silent> <F5> :lua require'dap'.continue()<CR>
 nnoremap <silent> <S-F5> :lua require'dap'.stop()<CR>
@@ -224,58 +226,6 @@ if !empty(expand(glob("cscope.out")))
     cs add ./cscope.out
 endif
 
-" Decode URI encoded characters
-function! DecodeURI(uri)
-    return substitute(a:uri, '%\([a-fA-F0-9][a-fA-F0-9]\)', '\=nr2char("0x" . submatch(1))', "g")
-endfunction
-
-" Attempt to clear non-focused buffers with matching name
-function! ClearDuplicateBuffers(uri)
-    " if our filename has URI encoded characters
-    if DecodeURI(a:uri) !=# a:uri
-        " wipeout buffer with URI decoded name - can print error if buffer in focus
-        sil! exe "bwipeout " . fnameescape(DecodeURI(a:uri))
-        " change the name of the current buffer to the URI decoded name
-        exe "keepalt file " . fnameescape(DecodeURI(a:uri))
-        " ensure we don't have any open buffer matching non-URI decoded name
-        sil! exe "bwipeout " . fnameescape(a:uri)
-    endif
-endfunction
-
-function! RzipOverride()
-    " Disable vim-rzip's autocommands
-    autocmd! zip BufReadCmd   zipfile:*,zipfile:*/*
-    exe "au! zip BufReadCmd ".g:zipPlugin_ext
-
-    " order is important here, setup name of new buffer correctly then fallback to vim-rzip's handling
-    autocmd zip BufReadCmd   zipfile:*  call ClearDuplicateBuffers(expand("<amatch>"))
-    autocmd zip BufReadCmd   zipfile:*  call rzip#Read(DecodeURI(expand("<amatch>")), 1)
-
-    if has("unix")
-        autocmd zip BufReadCmd   zipfile:*/*  call ClearDuplicateBuffers(expand("<amatch>"))
-        autocmd zip BufReadCmd   zipfile:*/*  call rzip#Read(DecodeURI(expand("<amatch>")), 1)
-    endif
-
-    exe "au zip BufReadCmd ".g:zipPlugin_ext."  call rzip#Browse(DecodeURI(expand('<amatch>')))"
-endfunction
-
-autocmd VimEnter * call RzipOverride()
-
-let g:dashboard_default_executive = 'fzf'
-let g:dashboard_custom_shortcut={
-\ 'last_session'       : '',
-\ 'find_history'       : '',
-\ 'find_file'          : '',
-\ 'new_file'           : '',
-\ 'change_colorscheme' : '',
-\ 'find_word'          : '',
-\ 'book_marks'         : '',
-\ }
-let g:dashboard_custom_header = [
-\ ' ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',
-\ ' ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║',
-\ ' ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║',
-\ ' ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║',
-\ ' ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║',
-\ ' ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',
-\]
+let g:db = "mysql://pacokwon@localhost/alto"
+nnoremap <leader>x :.DB<CR>
+xnoremap <leader>x :DB<CR>

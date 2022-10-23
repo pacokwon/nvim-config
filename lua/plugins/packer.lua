@@ -1,77 +1,55 @@
 return require'packer'.startup(function()
     use 'wbthomason/packer.nvim'
 
-    use 'akinsho/nvim-toggleterm.lua'
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-cmdline'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/nvim-cmp'
+    use 'hrsh7th/cmp-vsnip'
+    use 'hrsh7th/vim-vsnip'
+
+    use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
     use 'bfredl/nvim-miniyank'
     use 'editorconfig/editorconfig-vim'
-    use {
-        'folke/zen-mode.nvim',
-        config = function()
-            require('zen-mode').setup {
-                window = {
-                    backdrop = 1,
-                    width = 100,
-                    options = {
-                        signcolumn = 'no',
-                        number = false,
-                        relativenumber = false,
-                        list = false,
-                    },
-                },
-            }
-        end
-    }
-    use 'glepnir/dashboard-nvim'
+    use 'folke/trouble.nvim'
     use {'glepnir/galaxyline.nvim', branch = 'main', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
     use 'glepnir/lspsaga.nvim'
-    use 'hrsh7th/nvim-compe'
     use {'junegunn/fzf', dir = '~/.fzf', run = './install --all'}
     use 'junegunn/fzf.vim'
-    use 'kyazdani42/nvim-tree.lua'
-    use 'kyazdani42/nvim-web-devicons'
-    use 'lbrayner/vim-rzip'
-    use 'leafOfTree/vim-vue-plugin'
     use 'lewis6991/gitsigns.nvim'
-    -- use 'ludovicchabant/vim-gutentags'
     use 'mattn/emmet-vim'
     use 'mfussenegger/nvim-dap'
+    use 'mfussenegger/nvim-jdtls'
+    use 'mhartington/formatter.nvim'
     use 'neovim/nvim-lspconfig'
-    use 'neovimhaskell/haskell-vim'
-    use 'norcalli/nvim-colorizer.lua'
     use 'nvim-lua/popup.nvim'
     use 'nvim-lua/plenary.nvim'
     use {'nvim-telescope/telescope.nvim', requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim'}}
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
+    use "nvim-telescope/telescope-file-browser.nvim"
+    use 'nvim-telescope/telescope-ui-select.nvim'
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use {'nvim-treesitter/playground', requires = 'nvim-treesitter/nvim-treesitter'}
-    use 'pacokwon/plink.nvim'
+    use 'nvim-treesitter/nvim-treesitter-textobjects'
+    use 'onsails/lspkind.nvim'
     use 'peitalin/vim-jsx-typescript'
     use 'ray-x/lsp_signature.nvim'
-    use 'rust-lang/rust.vim'
-    use 'scalameta/nvim-metals'
+    use 'simrat39/rust-tools.nvim'
     use 'steelsojka/pears.nvim'
-    use {'styled-components/vim-styled-components', branch = 'develop'}
+    use 'theHamsta/nvim-dap-virtual-text'
     use 'tommcdo/vim-exchange'
     use 'tpope/vim-commentary'
     use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
     use 'tpope/vim-fugitive'
+    use 'tpope/vim-dadbod'
     use 'tpope/vim-repeat'
     use 'tpope/vim-surround'
-    use 'vifm/vifm.vim'
-    use 'vimwiki/vimwiki'
 
     -- colors
     use 'Shatur95/neovim-ayu'
-    use 'arzg/vim-colors-xcode'
     use 'folke/tokyonight.nvim'
-    use 'haishanh/night-owl.vim'
-    use 'ishan9299/modus-theme-vim'
-    use 'mhartington/oceanic-next'
-    use 'morhetz/gruvbox'
     use 'navarasu/onedark.nvim'
-    use 'pacokwon/onedarkhc.vim'
-    use 'pacokwon/panic.vim'
-    use 'projekt0n/github-nvim-theme'
-    use 'savq/melange'
+    use 'sainnhe/edge'
     use 'srcery-colors/srcery-vim'
 end)
