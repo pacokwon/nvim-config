@@ -30,13 +30,6 @@ telescope.setup {
             },
         },
         file_ignore_patterns = { ".yarn" }
-    },
-    extensions = {
-        fzf = {
-            override_generic_sorter = false,
-            override_file_sorter = true,
-            case_mode = "smart_case"
-        }
     }
 }
 

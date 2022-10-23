@@ -33,23 +33,6 @@ autocmd FileType jsonc syntax match Comment +\/\/.\+$+
 
 autocmd TextYankPost * silent! lua vim.highlight.on_yank {on_visual=false}
 
-" ========== Plugin Configurations ==========
-" ====== netrw ======
-let g:netrw_banner=0        " disable banner
-let g:netrw_browse_split=4  " open in prior window
-let g:netrw_altv=1          " open splits to the right
-let g:netrw_liststyle=3     " tree view
-let g:netrw_list_hide='.*\.swp$'
-let g:netrw_localrmdir='rm -r'
-
-" Per default, netrw leaves unmodified buffers open. This autocommand
-" deletes netrw's buffer once it's hidden (using ':q', for example)
-" https://github.com/tpope/vim-vinegar/issues/13#issuecomment-47133890
-autocmd FileType netrw setl bufhidden=delete
-
-" ====== colorizer ======
-nnoremap <silent> <leader>tc :ColorToggle<CR>
-
 " ====== commentary ======
 autocmd FileType jsonc setlocal commentstring=//%s
 autocmd FileType fsharp setlocal commentstring=//%s
@@ -72,24 +55,6 @@ let g:user_emmet_settings = {
 \      'extends' : 'jsx',
 \  },
 \}
-
-" ====== vim-vue-plugin ======
-let g:vim_vue_plugin_load_full_syntax = 1
-
-" ====== vimwiki ======
-let g:vimwiki_list = [
-    \{'path': '~/vimwiki', 'syntax': 'markdown', 'ext': '.md'}
-\]
-let g:vimwiki_conceallevel = 0
-nnoremap <leader>wf :Files ~/vimwiki<CR>
-nmap <C-h> <Plug>VimwikiDiaryPrevDay
-nmap <C-l> <Plug>VimwikiDiaryNextDay
-
-" ====== vifm.vim ======
-let g:loaded_netrw          = 1
-let g:loaded_netrwPlguin    = 1
-let g:vifm_replace_netrw    = 1
-nnoremap <silent> <leader>vi :Vifm<CR>
 
 " ====== diagnostic nvim ======
 nnoremap <silent>K   :lua vim.lsp.buf.hover()<CR>
@@ -131,61 +96,13 @@ let g:vim_vue_plugin_use_scss = 1
 
 " ====== nvim-telescope ======
 nnoremap <expr> <silent> <leader>ff (len(system('git rev-parse')) ? ':lua require"telescope.builtin".find_files()' : ':lua require"telescope.builtin".git_files({ show_untracked = true })')."\<CR>"
-nnoremap <silent> <leader>fs :Telescope live_grep<CR>
+nnoremap <silent> <leader>ft :Telescope grep_string search=<CR>
 nnoremap <leader>fgb :lua require'telescope.builtin'.git_branches()<CR>
 nnoremap <leader>fgs :lua require'telescope.builtin'.git_status()<CR>
 
 " ====== formatter.nvim ======
 nnoremap <silent> <leader>fw :Format<CR>
 nnoremap <silent> <leader>fW :FormatWrite<CR>
-
-" ====== fzf & fzf.vim ======
-" Terminal buffer options for fzf
-autocmd! FileType fzf
-autocmd  FileType fzf set noshowmode noruler nonu nornu
-
-let g:fzf_commits_log_options = '--all --decorate --oneline --graph'
-
-if has('nvim') && exists('&winblend') && &termguicolors
-    set winblend=20
-
-    hi NormalFloat guibg=None
-    if exists('g:fzf_colors.bg')
-        call remove(g:fzf_colors, 'bg')
-    endif
-
-    if stridx($FZF_DEFAULT_OPTS, '--border') == -1
-        let $FZF_DEFAULT_OPTS .= ' --border'
-    endif
-
-    function! FloatingFZF()
-        let width = float2nr(&columns * 0.9)
-        let height = float2nr(&lines * 0.9)
-        let opts = { 'relative': 'editor',
-                    \ 'row': (&lines - height) / 2,
-                    \ 'col': (&columns - width) / 2,
-                    \ 'width': width,
-                    \ 'height': height }
-
-        call nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
-    endfunction
-
-    let g:fzf_layout = { 'window': 'call FloatingFZF()' }
-endif
-
-set rtp+=/usr/local/opt/fzf
-
-" Rg command settings
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
-  \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '~'),
-  \   <bang>0)
-
-" search
-nnoremap <leader>ft :Rg<CR>
-nnoremap <leader>fr :Rg!<CR>
 
 function! SynStack()
   if !exists("*synstack")
