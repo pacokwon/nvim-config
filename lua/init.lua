@@ -1,5 +1,5 @@
-require'plugins.packer'
 require'colors'
+require'keymaps'
 require'opts'
-require'mappings'
 require'plugins'
+require'plugins.packer'
