@@ -60,9 +60,6 @@ hi! link LspDiagnosticsUnderlineError LspDiagnosticsDefaultError
 
 hi! link TelescopeSelection LspsagaFinderSelection
 
-" ====== nvim-telescope ======
-nnoremap <expr> <silent> <leader>ff (len(system('git rev-parse')) ? ':lua require"telescope.builtin".find_files()' : ':lua require"telescope.builtin".git_files({ show_untracked = true })')."\<CR>"
-
 if !empty(expand(glob("tags")))
     set tags+=./tags
 endif
