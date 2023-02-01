@@ -1,5 +1,8 @@
 require'plugins.lsp.servers'
-require'lspsaga'.init_lsp_saga()
+require'lspsaga'.init_lsp_saga({
+    -- use emoji lightbulb in default
+    code_action_icon = "",
+})
 
 local define_diagnostic_sign = function(group, text)
     vim.fn.sign_define(group, { texthl = group, text = text, numhl = group})
