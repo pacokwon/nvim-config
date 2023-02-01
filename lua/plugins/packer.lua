@@ -36,7 +36,7 @@ return require'packer'.startup(function()
     use 'peitalin/vim-jsx-typescript'
     use 'ray-x/lsp_signature.nvim'
     use 'simrat39/rust-tools.nvim'
-    use 'steelsojka/pears.nvim'
+    use 'windwp/nvim-autopairs'
     use 'theHamsta/nvim-dap-virtual-text'
     use 'tommcdo/vim-exchange'
     use 'tpope/vim-commentary'
