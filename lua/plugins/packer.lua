@@ -22,6 +22,7 @@ return require'packer'.startup(function()
     use 'mfussenegger/nvim-dap'
     use 'mfussenegger/nvim-jdtls'
     use 'mhartington/formatter.nvim'
+    use 'mrjones2014/nvim-ts-rainbow'
     use 'neovim/nvim-lspconfig'
     use 'nvim-lua/popup.nvim'
     use 'nvim-lua/plenary.nvim'
