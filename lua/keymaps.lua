@@ -68,14 +68,5 @@ map('n', '<leader>pbb', '<cmd>let @+ = expand("%")<CR>')
 map('n', '<leader>pbt', '<cmd>let @+ = expand("%:t")<CR>')
 map('n', '<leader>pbp', '<cmd>let @+ = expand("%:p")<CR>')
 
--- fugitive
-map('n', '<leader>gg', '<cmd>vertical Git<CR>')
-map('n', '<leader>go', '<cmd>tab Git<CR>')
-map('n', '<leader>gp', '<cmd>Git push<CR>')
-
 map('n', '<leader>tv', '<cmd>vsp term://zsh<CR>')
 map('n', '<leader>tn', '<cmd>tabe term://zsh<CR>')
-
--- formatter.nvim
-map('n', '<leader>fw', ':Format<CR>', { silent = true })
-map('n', '<leader>fW', ':FormatWrite<CR>', { silent = true })
