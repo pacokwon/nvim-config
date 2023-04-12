@@ -24,5 +24,19 @@ return {
 
             require'lazy-plugins.lsp.servers'
         end,
+    },
+    'williamboman/mason-lspconfig.nvim',
+    'jay-babu/mason-null-ls.nvim',
+    {
+        'williamboman/mason.nvim',
+        config = function()
+            require'lazy-plugins.lsp.mason'
+        end,
+    },
+    {
+        'jose-elias-alvarez/null-ls.nvim',
+        config = function()
+            require'lazy-plugins.lsp.null-ls'
+        end,
     }
 }
