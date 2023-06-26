@@ -3,20 +3,25 @@ return {
         'lewis6991/gitsigns.nvim',
         config = function()
             require'gitsigns'.setup {
-                keymaps = {
-                    noremap = true,
-                    buffer = true,
+                on_attach = function(bufnr)
+                    local gs = package.loaded.gitsigns
 
-                    ['n )'] = { expr = true, "&diff ? ')' : '<cmd>lua require\"gitsigns\".next_hunk()<CR>'" },
-                    ['n ('] = { expr = true, "&diff ? '(' : '<cmd>lua require\"gitsigns\".prev_hunk()<CR>'" },
+                    local function map(mode, l, r, opts)
+                      opts = opts or {}
+                      opts.buffer = bufnr
+                      opts.noremap = true
+                      vim.keymap.set(mode, l, r, opts)
+                    end
 
-                    ['n <leader>hs'] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
-                    ['v <leader>hs'] = '<cmd>lua require"gitsigns".stage_hunk({ vim.fn.line("."), vim.fn.line("v") })<CR>',
-                    ['n <leader>hu'] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',
-                    ['n <leader>hx'] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
-                    ['n <leader>hb'] = '<cmd>lua require"gitsigns".blame_line()<CR>',
-                    ['n <leader>hp'] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
-                },
+                    map('n', ')', "&diff ? ')' : '<cmd>lua require\"gitsigns\".next_hunk()<CR>'", {expr = true})
+                    map('n', '(', "&diff ? '(' : '<cmd>lua require\"gitsigns\".prev_hunk()<CR>'", {expr = true})
+                    map('n', '<leader>hs', gs.stage_hunk)
+                    map('v', '<leader>hs', function() gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") }) end)
+                    map('n', '<leader>hu', gs.undo_stage_hunk)
+                    map('n', '<leader>hx', gs.reset_hunk)
+                    map('n', '<leader>hb', gs.blame_line)
+                    map('n', '<leader>hp', gs.preview_hunk)
+                end,
                 current_line_blame = true,
                 sign_priority = 6,
                 update_debounce = 100,
